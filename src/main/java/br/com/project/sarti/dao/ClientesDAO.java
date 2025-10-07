@@ -5,7 +5,10 @@ import br.com.project.sarti.model.Clientes;
 import br.com.project.jdbc.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ClientesDAO {
@@ -60,6 +63,50 @@ public class ClientesDAO {
     
 //metodo excluir cliente    
     public void excluirCliente(){
+        
+    }
+    
+//metodo listar cliente    
+    public List<Clientes> listaClientes(){
+        
+        try {
+            //1- criar a lista
+            List<Clientes> lista = new ArrayList<>();
+            
+            //2- criar o sql, organizar e executar
+            String sql = "select * from tb_clientes";
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Clientes obj = new Clientes();
+                
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setRg(rs.getString("rg"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+                obj.setCelular(rs.getString("celular"));
+                obj.setCep(rs.getString("cep"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setEndereco(rs.getString("endereco"));
+                obj.setNumero(rs.getInt("numero"));
+                obj.setComplemento(rs.getString("Complemento"));
+                obj.setBairro(rs.getString("bairro"));
+                obj.setCidade(rs.getString("cidade"));
+                obj.setUf(rs.getString("uf"));
+                
+                lista.add(obj);
+            }
+            
+            return lista;
+            
+        } catch (SQLException erro) {
+            
+            JOptionPane.showMessageDialog(null, "Erro:" + erro);
+            return null;
+        }
         
     }
 }
