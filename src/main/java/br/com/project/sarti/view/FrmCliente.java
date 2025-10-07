@@ -6,6 +6,8 @@ package br.com.project.sarti.view;
 
 import br.com.project.sarti.dao.ClientesDAO;
 import br.com.project.sarti.model.Clientes;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,9 +15,36 @@ import br.com.project.sarti.model.Clientes;
  */
 public class FrmCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmCliente
-     */
+    
+    //metodo listar na tabela
+    public void listar(){
+        ClientesDAO dao = new ClientesDAO();
+        List<Clientes>lista = dao.listarClientes();   
+        //cria o obj que armazena os dados para colocar na tabela
+        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
+        dados.setNumRows(0);
+        //definindo a ordem da tabela 
+        for(Clientes c: lista){
+                dados.addRow(new Object[]{
+                    c.getId(),
+                    c.getNome(),
+                    c.getRg(),
+                    c.getCpf(),
+                    c.getEmail(),
+                    c.getCelular(),
+                    c.getCep(),
+                    c.getEndereco(),
+                    c.getNumero(),
+                    c.getComplemento(),
+                    c.getBairro(),
+                    c.getCidade(),
+                    c.getUf()
+                });
+
+        }
+    }
+    
+    
     public FrmCliente() {
         initComponents();
     }
@@ -108,7 +137,7 @@ public class FrmCliente extends javax.swing.JFrame {
         jTextField20 = new javax.swing.JTextField();
         btnpesquisarcli = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaClientes = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         LabelCadastroCli = new javax.swing.JLabel();
         btnexcluir = new javax.swing.JButton();
@@ -117,6 +146,11 @@ public class FrmCliente extends javax.swing.JFrame {
         btneditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
@@ -701,21 +735,21 @@ public class FrmCliente extends javax.swing.JFrame {
         jPanel3.add(btnpesquisarcli);
         btnpesquisarcli.setBounds(440, 30, 120, 40);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "RG", "E-mail", "Celular", "CEP", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
+                "Código", "Nome", "RG", "CPF", "E-mail", "Celular", "CEP", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaClientes);
 
         jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 80, 1060, 130);
+        jScrollPane1.setBounds(0, 80, 1060, 250);
 
         TabbedPaneConsultaClie.addTab("Consulta De Clientes", jPanel3);
 
@@ -970,6 +1004,11 @@ public class FrmCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtendereco1ActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        //Carrega a lista 
+        listar();
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -1066,7 +1105,6 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
@@ -1080,6 +1118,7 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable tabelaClientes;
     private javax.swing.JTextField txtbairro;
     private javax.swing.JFormattedTextField txtcelular1;
     private javax.swing.JFormattedTextField txtcep;

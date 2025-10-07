@@ -67,7 +67,7 @@ public class ClientesDAO {
     }
     
 //metodo listar cliente    
-    public List<Clientes> listaClientes(){
+    public List<Clientes> listarClientes(){
         
         try {
             //1- criar a lista
@@ -95,7 +95,7 @@ public class ClientesDAO {
                 obj.setComplemento(rs.getString("Complemento"));
                 obj.setBairro(rs.getString("bairro"));
                 obj.setCidade(rs.getString("cidade"));
-                obj.setUf(rs.getString("uf"));
+                obj.setUf(rs.getString("estado"));
                 
                 lista.add(obj);
             }
