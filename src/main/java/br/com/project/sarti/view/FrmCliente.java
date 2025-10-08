@@ -6,6 +6,7 @@ package br.com.project.sarti.view;
 
 import br.com.project.sarti.dao.ClientesDAO;
 import br.com.project.sarti.model.Clientes;
+import br.com.project.sarti.model.Utilitarios;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -58,8 +59,8 @@ public class FrmCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TabbedPaneConsultaClie = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        painel = new javax.swing.JTabbedPane();
+        painelDados = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -132,7 +133,7 @@ public class FrmCliente extends javax.swing.JFrame {
         btnpesquisarcod = new javax.swing.JButton();
         txtcelular1 = new javax.swing.JFormattedTextField();
         txtendereco = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
+        painelConsulta = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         txtpesquisa = new javax.swing.JTextField();
         btnpesquisar = new javax.swing.JButton();
@@ -152,25 +153,26 @@ public class FrmCliente extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(null);
+        painelDados.setBackground(new java.awt.Color(255, 255, 255));
+        painelDados.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel2.setText("Código:");
-        jPanel2.add(jLabel2);
+        painelDados.add(jLabel2);
         jLabel2.setBounds(28, 32, 60, 33);
 
+        txtcodigo.setEditable(false);
         txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcodigoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtcodigo);
+        painelDados.add(txtcodigo);
         txtcodigo.setBounds(100, 30, 95, 34);
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel3.setText("Celular:");
-        jPanel2.add(jLabel3);
+        painelDados.add(jLabel3);
         jLabel3.setBounds(480, 140, 60, 33);
 
         txtnome.addActionListener(new java.awt.event.ActionListener() {
@@ -178,12 +180,12 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtnomeActionPerformed(evt);
             }
         });
-        jPanel2.add(txtnome);
+        painelDados.add(txtnome);
         txtnome.setBounds(100, 90, 270, 34);
 
         jLabel4.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel4.setText("Email:");
-        jPanel2.add(jLabel4);
+        painelDados.add(jLabel4);
         jLabel4.setBounds(30, 140, 60, 33);
 
         txtemail.addActionListener(new java.awt.event.ActionListener() {
@@ -191,17 +193,17 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtemailActionPerformed(evt);
             }
         });
-        jPanel2.add(txtemail);
+        painelDados.add(txtemail);
         txtemail.setBounds(100, 140, 320, 34);
 
         jLabel5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel5.setText("Nome:");
-        jPanel2.add(jLabel5);
+        painelDados.add(jLabel5);
         jLabel5.setBounds(30, 90, 60, 33);
 
         jLabel6.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel6.setText("CEP:");
-        jPanel2.add(jLabel6);
+        painelDados.add(jLabel6);
         jLabel6.setBounds(30, 190, 60, 33);
 
         try {
@@ -215,7 +217,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtcepActionPerformed(evt);
             }
         });
-        jPanel2.add(txtcep);
+        painelDados.add(txtcep);
         txtcep.setBounds(100, 190, 110, 30);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -298,12 +300,12 @@ public class FrmCliente extends javax.swing.JFrame {
         jPanel4.add(jFormattedTextField4);
         jFormattedTextField4.setBounds(100, 190, 110, 30);
 
-        jPanel2.add(jPanel4);
+        painelDados.add(jPanel4);
         jPanel4.setBounds(0, 0, 0, 0);
 
         jLabel12.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel12.setText("Endereço:");
-        jPanel2.add(jLabel12);
+        painelDados.add(jLabel12);
         jLabel12.setBounds(230, 190, 80, 33);
 
         txtnumero.addActionListener(new java.awt.event.ActionListener() {
@@ -311,12 +313,12 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtnumeroActionPerformed(evt);
             }
         });
-        jPanel2.add(txtnumero);
+        painelDados.add(txtnumero);
         txtnumero.setBounds(690, 190, 70, 34);
 
         jLabel13.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel13.setText("Celular:");
-        jPanel2.add(jLabel13);
+        painelDados.add(jLabel13);
         jLabel13.setBounds(480, 140, 60, 33);
 
         try {
@@ -330,17 +332,17 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtcelularActionPerformed(evt);
             }
         });
-        jPanel2.add(txtcelular);
+        painelDados.add(txtcelular);
         txtcelular.setBounds(550, 140, 170, 30);
 
         jLabel14.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel14.setText("Nº:");
-        jPanel2.add(jLabel14);
+        painelDados.add(jLabel14);
         jLabel14.setBounds(650, 190, 40, 33);
 
         jLabel15.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel15.setText("Bairro:");
-        jPanel2.add(jLabel15);
+        painelDados.add(jLabel15);
         jLabel15.setBounds(30, 240, 60, 33);
 
         txtbairro.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +350,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtbairroActionPerformed(evt);
             }
         });
-        jPanel2.add(txtbairro);
+        painelDados.add(txtbairro);
         txtbairro.setBounds(100, 240, 180, 34);
 
         txtcidade.addActionListener(new java.awt.event.ActionListener() {
@@ -356,12 +358,12 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtcidadeActionPerformed(evt);
             }
         });
-        jPanel2.add(txtcidade);
+        painelDados.add(txtcidade);
         txtcidade.setBounds(380, 240, 180, 34);
 
         jLabel16.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel16.setText("Cidade:");
-        jPanel2.add(jLabel16);
+        painelDados.add(jLabel16);
         jLabel16.setBounds(310, 240, 60, 33);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -604,7 +606,7 @@ public class FrmCliente extends javax.swing.JFrame {
         jPanel5.add(jLabel31);
         jLabel31.setBounds(310, 240, 60, 33);
 
-        jPanel2.add(jPanel5);
+        painelDados.add(jPanel5);
         jPanel5.setBounds(0, 0, 0, 0);
 
         txtcomplemento.addActionListener(new java.awt.event.ActionListener() {
@@ -612,17 +614,17 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtcomplementoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtcomplemento);
+        painelDados.add(txtcomplemento);
         txtcomplemento.setBounds(700, 240, 170, 34);
 
         jLabel32.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel32.setText("UF:");
-        jPanel2.add(jLabel32);
+        painelDados.add(jLabel32);
         jLabel32.setBounds(890, 240, 30, 33);
 
         jLabel33.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel33.setText("Complemento:");
-        jPanel2.add(jLabel33);
+        painelDados.add(jLabel33);
         jLabel33.setBounds(580, 240, 110, 33);
 
         cbuf.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
@@ -632,12 +634,12 @@ public class FrmCliente extends javax.swing.JFrame {
                 cbufActionPerformed(evt);
             }
         });
-        jPanel2.add(cbuf);
+        painelDados.add(cbuf);
         cbuf.setBounds(920, 242, 130, 30);
 
         jLabel34.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel34.setText("RG:");
-        jPanel2.add(jLabel34);
+        painelDados.add(jLabel34);
         jLabel34.setBounds(30, 300, 60, 33);
 
         try {
@@ -652,12 +654,12 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtrgActionPerformed(evt);
             }
         });
-        jPanel2.add(txtrg);
+        painelDados.add(txtrg);
         txtrg.setBounds(100, 300, 120, 30);
 
         jLabel35.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel35.setText("CPF:");
-        jPanel2.add(jLabel35);
+        painelDados.add(jLabel35);
         jLabel35.setBounds(250, 300, 60, 33);
 
         try {
@@ -672,7 +674,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtcpfActionPerformed(evt);
             }
         });
-        jPanel2.add(txtcpf);
+        painelDados.add(txtcpf);
         txtcpf.setBounds(320, 300, 110, 30);
 
         btnpesquisarcod.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
@@ -682,7 +684,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 btnpesquisarcodActionPerformed(evt);
             }
         });
-        jPanel2.add(btnpesquisarcod);
+        painelDados.add(btnpesquisarcod);
         btnpesquisarcod.setBounds(230, 20, 120, 50);
 
         try {
@@ -696,7 +698,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtcelular1ActionPerformed(evt);
             }
         });
-        jPanel2.add(txtcelular1);
+        painelDados.add(txtcelular1);
         txtcelular1.setBounds(550, 140, 170, 30);
 
         txtendereco.addActionListener(new java.awt.event.ActionListener() {
@@ -704,17 +706,17 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtenderecoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtendereco);
+        painelDados.add(txtendereco);
         txtendereco.setBounds(310, 190, 280, 34);
 
-        TabbedPaneConsultaClie.addTab("Dados Pessoais", jPanel2);
+        painel.addTab("Dados Pessoais", painelDados);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(null);
+        painelConsulta.setBackground(new java.awt.Color(255, 255, 255));
+        painelConsulta.setLayout(null);
 
         jLabel36.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel36.setText("Nome:");
-        jPanel3.add(jLabel36);
+        painelConsulta.add(jLabel36);
         jLabel36.setBounds(10, 30, 60, 33);
 
         txtpesquisa.addActionListener(new java.awt.event.ActionListener() {
@@ -727,7 +729,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 txtpesquisaKeyPressed(evt);
             }
         });
-        jPanel3.add(txtpesquisa);
+        painelConsulta.add(txtpesquisa);
         txtpesquisa.setBounds(80, 30, 320, 34);
 
         btnpesquisar.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
@@ -737,7 +739,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 btnpesquisarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnpesquisar);
+        painelConsulta.add(btnpesquisar);
         btnpesquisar.setBounds(440, 30, 120, 40);
 
         tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
@@ -758,10 +760,10 @@ public class FrmCliente extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaClientes);
 
-        jPanel3.add(jScrollPane1);
+        painelConsulta.add(jScrollPane1);
         jScrollPane1.setBounds(0, 80, 1060, 250);
 
-        TabbedPaneConsultaClie.addTab("Consulta De Clientes", jPanel3);
+        painel.addTab("Consulta De Clientes", painelConsulta);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -830,14 +832,14 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(205, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(TabbedPaneConsultaClie, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(painel, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TabbedPaneConsultaClie, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1012,6 +1014,8 @@ public class FrmCliente extends javax.swing.JFrame {
 
     private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
         // TODO add your handling code here:
+                   new Utilitarios().LimpaTela(painelDados);
+
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void btnpesquisarcodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarcodActionPerformed
@@ -1036,6 +1040,8 @@ public class FrmCliente extends javax.swing.JFrame {
             
             ClientesDAO dao = new ClientesDAO();
             dao.cadastrarCliente(obj);
+             new Utilitarios().LimpaTela(painelDados);
+
 
 
     }//GEN-LAST:event_btnsalvarActionPerformed
@@ -1067,12 +1073,15 @@ public class FrmCliente extends javax.swing.JFrame {
             
             ClientesDAO dao = new ClientesDAO();
             dao.excluirCliente(obj);
+            
+             new Utilitarios().LimpaTela(painelDados);
+
     }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
         //pega os dados 
         //Essa linha faz com que o programa mude automaticamente para a primeira aba do painel
-        TabbedPaneConsultaClie.setSelectedIndex(0);
+        painel.setSelectedIndex(0);
         
         //Quando o usuário clica em uma linha da tabela de clientes, o programa pega o valor da primeira coluna (geralmente o código do cliente) e o exibe no campo de texto txtcodigo.
         txtcodigo.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 0).toString());
@@ -1111,7 +1120,8 @@ public class FrmCliente extends javax.swing.JFrame {
             
             ClientesDAO dao = new ClientesDAO();
             dao.alterarCliente(obj);
-
+            
+           new Utilitarios().LimpaTela(painelDados);
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
@@ -1182,7 +1192,6 @@ public class FrmCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelCadastroCli;
-    private javax.swing.JTabbedPane TabbedPaneConsultaClie;
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btnexcluir;
     private javax.swing.JButton btnnovo;
@@ -1234,8 +1243,6 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1252,6 +1259,9 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTabbedPane painel;
+    private javax.swing.JPanel painelConsulta;
+    private javax.swing.JPanel painelDados;
     private javax.swing.JTable tabelaClientes;
     private javax.swing.JTextField txtbairro;
     private javax.swing.JFormattedTextField txtcelular;
