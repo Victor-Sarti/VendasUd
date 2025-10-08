@@ -134,8 +134,8 @@ public class FrmCliente extends javax.swing.JFrame {
         txtendereco = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
-        btnpesquisarcli = new javax.swing.JButton();
+        txtpesquisa = new javax.swing.JTextField();
+        btnpesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaClientes = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -717,23 +717,28 @@ public class FrmCliente extends javax.swing.JFrame {
         jPanel3.add(jLabel36);
         jLabel36.setBounds(10, 30, 60, 33);
 
-        jTextField20.addActionListener(new java.awt.event.ActionListener() {
+        txtpesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField20ActionPerformed(evt);
+                txtpesquisaActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField20);
-        jTextField20.setBounds(80, 30, 320, 34);
+        txtpesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtpesquisaKeyPressed(evt);
+            }
+        });
+        jPanel3.add(txtpesquisa);
+        txtpesquisa.setBounds(80, 30, 320, 34);
 
-        btnpesquisarcli.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        btnpesquisarcli.setText("Pesquisar");
-        btnpesquisarcli.addActionListener(new java.awt.event.ActionListener() {
+        btnpesquisar.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        btnpesquisar.setText("Pesquisar");
+        btnpesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpesquisarcliActionPerformed(evt);
+                btnpesquisarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnpesquisarcli);
-        btnpesquisarcli.setBounds(440, 30, 120, 40);
+        jPanel3.add(btnpesquisar);
+        btnpesquisar.setBounds(440, 30, 120, 40);
 
         tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -969,13 +974,41 @@ public class FrmCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcpfActionPerformed
 
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+    private void txtpesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
+        
+    }//GEN-LAST:event_txtpesquisaActionPerformed
 
-    private void btnpesquisarcliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarcliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnpesquisarcliActionPerformed
+    private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
+        //Boatao Pesquisar 
+        String nome = "%" + txtpesquisa.getText()+ "%";
+        
+                ClientesDAO dao = new ClientesDAO();
+        List<Clientes>lista = dao.BucarCliente(nome);   
+        //cria o obj que armazena os dados para colocar na tabela
+        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
+        dados.setNumRows(0);
+        //definindo a ordem da tabela 
+        for(Clientes c: lista){
+                dados.addRow(new Object[]{
+                    c.getId(),
+                    c.getNome(),
+                    c.getRg(),
+                    c.getCpf(),
+                    c.getEmail(),
+                    c.getCelular(),
+                    c.getCep(),
+                    c.getEndereco(),
+                    c.getNumero(),
+                    c.getComplemento(),
+                    c.getBairro(),
+                    c.getCidade(),
+                    c.getUf()
+                });
+
+        }
+        
+    }//GEN-LAST:event_btnpesquisarActionPerformed
 
     private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
         // TODO add your handling code here:
@@ -1081,6 +1114,37 @@ public class FrmCliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btneditarActionPerformed
 
+    private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
+        //Conforme digita aparece 
+        
+        String nome = "%" + txtpesquisa.getText()+ "%";
+        
+                ClientesDAO dao = new ClientesDAO();
+        List<Clientes>lista = dao.BucarCliente(nome);   
+        //cria o obj que armazena os dados para colocar na tabela
+        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
+        dados.setNumRows(0);
+        //definindo a ordem da tabela 
+        for(Clientes c: lista){
+                dados.addRow(new Object[]{
+                    c.getId(),
+                    c.getNome(),
+                    c.getRg(),
+                    c.getCpf(),
+                    c.getEmail(),
+                    c.getCelular(),
+                    c.getCep(),
+                    c.getEndereco(),
+                    c.getNumero(),
+                    c.getComplemento(),
+                    c.getBairro(),
+                    c.getCidade(),
+                    c.getUf()
+                });
+
+        }
+    }//GEN-LAST:event_txtpesquisaKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -1122,7 +1186,7 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JButton btneditar;
     private javax.swing.JButton btnexcluir;
     private javax.swing.JButton btnnovo;
-    private javax.swing.JButton btnpesquisarcli;
+    private javax.swing.JButton btnpesquisar;
     private javax.swing.JButton btnpesquisarcod;
     private javax.swing.JButton btnsalvar;
     private javax.swing.JComboBox<String> cbuf;
@@ -1185,7 +1249,6 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
@@ -1202,6 +1265,7 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtendereco;
     private javax.swing.JTextField txtnome;
     private javax.swing.JTextField txtnumero;
+    private javax.swing.JTextField txtpesquisa;
     private javax.swing.JFormattedTextField txtrg;
     // End of variables declaration//GEN-END:variables
 }
