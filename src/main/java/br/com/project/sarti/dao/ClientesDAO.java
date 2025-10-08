@@ -59,8 +59,8 @@ public class ClientesDAO {
 //metodo alterar cliente    
     public void alterarCliente(Clientes obj){
          try {
-            String sql = "update tb_clientes set (nome=? ,rg=? ,cpf=? ,email=? ,celular=? ,cep=? ,endereco=? ,numero=?,"
-                    + "complemento=?, bairro=?, cidade=?, estado=? where id=?";
+            String sql = "UPDATE tb_clientes SET nome=? ,rg=? ,cpf=? ,email=? ,celular=? ,cep=? ,endereco=? ,numero=?,"
+                    + "complemento=?, bairro=?, cidade=?, estado=? WHERE id=?";
                                                       
         
         // 2- conectar com o bd e organizar o comando sql
@@ -77,6 +77,7 @@ public class ClientesDAO {
             stmt.setString(10, obj.getBairro());
             stmt.setString(11, obj.getCidade());
             stmt.setString(12, obj.getUf());
+            stmt.setInt(13, obj.getId());
             
         // 3 - executar o comando sql
         

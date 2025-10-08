@@ -83,7 +83,7 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         txtnumero = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jFormattedTextField5 = new javax.swing.JFormattedTextField();
+        txtcelular = new javax.swing.JFormattedTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtbairro = new javax.swing.JTextField();
@@ -131,7 +131,7 @@ public class FrmCliente extends javax.swing.JFrame {
         txtcpf = new javax.swing.JFormattedTextField();
         btnpesquisarcod = new javax.swing.JButton();
         txtcelular1 = new javax.swing.JFormattedTextField();
-        txtendereco1 = new javax.swing.JTextField();
+        txtendereco = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
@@ -320,18 +320,18 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel13.setBounds(480, 140, 60, 33);
 
         try {
-            jFormattedTextField5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # #### - ####")));
+            txtcelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # #### - ####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField5.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        jFormattedTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtcelular.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtcelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField5ActionPerformed(evt);
+                txtcelularActionPerformed(evt);
             }
         });
-        jPanel2.add(jFormattedTextField5);
-        jFormattedTextField5.setBounds(550, 140, 170, 30);
+        jPanel2.add(txtcelular);
+        txtcelular.setBounds(550, 140, 170, 30);
 
         jLabel14.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel14.setText("Nº:");
@@ -699,13 +699,13 @@ public class FrmCliente extends javax.swing.JFrame {
         jPanel2.add(txtcelular1);
         txtcelular1.setBounds(550, 140, 170, 30);
 
-        txtendereco1.addActionListener(new java.awt.event.ActionListener() {
+        txtendereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtendereco1ActionPerformed(evt);
+                txtenderecoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtendereco1);
-        txtendereco1.setBounds(310, 190, 280, 34);
+        jPanel2.add(txtendereco);
+        txtendereco.setBounds(310, 190, 280, 34);
 
         TabbedPaneConsultaClie.addTab("Dados Pessoais", jPanel2);
 
@@ -746,6 +746,11 @@ public class FrmCliente extends javax.swing.JFrame {
                 "Código", "Nome", "RG", "CPF", "E-mail", "Celular", "CEP", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
             }
         ));
+        tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaClientesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaClientes);
 
         jPanel3.add(jScrollPane1);
@@ -799,6 +804,11 @@ public class FrmCliente extends javax.swing.JFrame {
         });
 
         btneditar.setText("EDITAR");
+        btneditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -875,9 +885,9 @@ public class FrmCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnumeroActionPerformed
 
-    private void jFormattedTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField5ActionPerformed
+    private void txtcelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcelularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField5ActionPerformed
+    }//GEN-LAST:event_txtcelularActionPerformed
 
     private void txtbairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbairroActionPerformed
         // TODO add your handling code here:
@@ -1005,9 +1015,9 @@ public class FrmCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcelular1ActionPerformed
 
-    private void txtendereco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtendereco1ActionPerformed
+    private void txtenderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtenderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtendereco1ActionPerformed
+    }//GEN-LAST:event_txtenderecoActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         //Carrega a lista 
@@ -1015,8 +1025,61 @@ public class FrmCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
-        // TODO add your handling code here:
+        // Botao excluir 
+        
+         Clientes obj = new Clientes();
+       
+            
+            obj.setId(Integer.parseInt(txtcodigo.getText()));
+            
+            ClientesDAO dao = new ClientesDAO();
+            dao.excluirCliente(obj);
     }//GEN-LAST:event_btnexcluirActionPerformed
+
+    private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
+        //pega os dados 
+        //Essa linha faz com que o programa mude automaticamente para a primeira aba do painel
+        TabbedPaneConsultaClie.setSelectedIndex(0);
+        
+        //Quando o usuário clica em uma linha da tabela de clientes, o programa pega o valor da primeira coluna (geralmente o código do cliente) e o exibe no campo de texto txtcodigo.
+        txtcodigo.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 0).toString());
+        txtnome.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 1).toString());
+        txtrg.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 2).toString());
+        txtcpf.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 3).toString());
+        txtemail.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 4).toString());
+        txtcelular.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 5).toString());
+        txtcep.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),6).toString());
+        txtendereco.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 7).toString());
+        txtnumero.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 8).toString());
+        txtcomplemento.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 9).toString());
+        txtbairro.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 10).toString());
+        txtcidade.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 11).toString());
+        cbuf.setSelectedItem(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 12).toString());
+    }//GEN-LAST:event_tabelaClientesMouseClicked
+
+    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
+    // Botao editar
+    
+       Clientes obj = new Clientes();
+            obj.setNome(txtnome.getText());
+            obj.setRg(txtrg.getText());
+            obj.setCpf(txtcpf.getText());
+            obj.setEmail(txtemail.getText());
+            obj.setCelular(txtnumero.getText());
+            obj.setCep(txtcep.getText());
+            obj.setEndereco(txtnumero.getText());
+            obj.setNumero(Integer.parseInt(txtnumero.getText()));
+            obj.setComplemento(txtcomplemento.getText());
+            obj.setBairro(txtbairro.getText());
+            obj.setCidade(txtcidade.getText());
+            obj.setUf(cbuf.getSelectedItem().toString());
+            
+            obj.setId(Integer.parseInt(txtcodigo.getText()));
+            
+            ClientesDAO dao = new ClientesDAO();
+            dao.alterarCliente(obj);
+
+    }//GEN-LAST:event_btneditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1068,7 +1131,6 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextField12;
     private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JFormattedTextField jFormattedTextField5;
     private javax.swing.JFormattedTextField jFormattedTextField7;
     private javax.swing.JFormattedTextField jFormattedTextField8;
     private javax.swing.JFormattedTextField jFormattedTextField9;
@@ -1129,6 +1191,7 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTable tabelaClientes;
     private javax.swing.JTextField txtbairro;
+    private javax.swing.JFormattedTextField txtcelular;
     private javax.swing.JFormattedTextField txtcelular1;
     private javax.swing.JFormattedTextField txtcep;
     private javax.swing.JTextField txtcidade;
@@ -1136,7 +1199,7 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtcomplemento;
     private javax.swing.JFormattedTextField txtcpf;
     private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtendereco1;
+    private javax.swing.JTextField txtendereco;
     private javax.swing.JTextField txtnome;
     private javax.swing.JTextField txtnumero;
     private javax.swing.JFormattedTextField txtrg;
