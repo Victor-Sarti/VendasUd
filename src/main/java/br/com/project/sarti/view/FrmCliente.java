@@ -778,6 +778,11 @@ public class FrmCliente extends javax.swing.JFrame {
         );
 
         btnexcluir.setText("EXCLUIR");
+        btnexcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnexcluirActionPerformed(evt);
+            }
+        });
 
         btnnovo.setText("NOVO");
         btnnovo.addActionListener(new java.awt.event.ActionListener() {
@@ -1008,6 +1013,10 @@ public class FrmCliente extends javax.swing.JFrame {
         //Carrega a lista 
         listar();
     }//GEN-LAST:event_formWindowActivated
+
+    private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnexcluirActionPerformed
 
     /**
      * @param args the command line arguments

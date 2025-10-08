@@ -57,13 +57,61 @@ public class ClientesDAO {
     }
     
 //metodo alterar cliente    
-    public void alterarCliente(){
+    public void alterarCliente(Clientes obj){
+         try {
+            String sql = "update tb_clientes set (nome=? ,rg=? ,cpf=? ,email=? ,celular=? ,cep=? ,endereco=? ,numero=?,"
+                    + "complemento=?, bairro=?, cidade=?, estado=? where id=?";
+                                                      
+        
+        // 2- conectar com o bd e organizar o comando sql
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, obj.getNome());
+            stmt.setString(2, obj.getRg());
+            stmt.setString(3, obj.getCpf());
+            stmt.setString(4, obj.getEmail());
+            stmt.setString(5, obj.getCelular());
+            stmt.setString(6, obj.getCep());
+            stmt.setString(7, obj.getEndereco());
+            stmt.setInt(8, obj.getNumero());
+            stmt.setString(9, obj.getComplemento());
+            stmt.setString(10, obj.getBairro());
+            stmt.setString(11, obj.getCidade());
+            stmt.setString(12, obj.getUf());
+            
+        // 3 - executar o comando sql
+        
+        stmt.execute();
+        stmt.close();
+        
+            JOptionPane.showMessageDialog(null,"Alterado com Sucesso!!");
+            
+        } catch (SQLException erro) {
+                        JOptionPane.showMessageDialog(null,"Erro" + erro);
+
+        }
         
     }
     
 //metodo excluir cliente    
-    public void excluirCliente(){
+    public void excluirCliente(Clientes obj){
+             // 1- criar comando sql
+        try {
+            String sql = " delete from tb_clientes where id = ?";
         
+        // 2- conectar com o bd e organizar o comando sql
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, obj.getId());    
+        // 3 - executar o comando sql
+        
+        stmt.execute();
+        stmt.close();
+        
+            JOptionPane.showMessageDialog(null,"Excluido com Sucesso!!");
+            
+        } catch (SQLException erro) {
+                        JOptionPane.showMessageDialog(null,"Erro" + erro);
+
+        }
     }
     
 //metodo listar cliente    
