@@ -122,6 +122,11 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtnome">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="18" style="0"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnomeActionPerformed"/>
               </Events>
@@ -145,6 +150,11 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtemail">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="18" style="0"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtemailActionPerformed"/>
               </Events>
@@ -186,7 +196,7 @@
                   <Format format="##### - ###" subtype="-1" type="5"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Serif" size="14" style="0"/>
+                  <Font name="Calibri" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -362,6 +372,11 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtnumero">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="12" style="0"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtnumeroActionPerformed"/>
               </Events>
@@ -390,7 +405,7 @@
                   <Format format="(##) # #### - ####" subtype="-1" type="5"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Serif" size="14" style="0"/>
+                  <Font name="Calibri" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -429,6 +444,11 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtbairro">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="18" style="0"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtbairroActionPerformed"/>
               </Events>
@@ -439,6 +459,11 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtcidade">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="18" style="0"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcidadeActionPerformed"/>
               </Events>
@@ -891,6 +916,11 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JTextField" name="txtcomplemento">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="18" style="0"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcomplementoActionPerformed"/>
               </Events>
@@ -929,7 +959,7 @@
             <Component class="javax.swing.JComboBox" name="cbuf">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Serif" size="14" style="0"/>
+                  <Font name="Calibri" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="27">
@@ -995,7 +1025,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value=""/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Serif" size="14" style="0"/>
+                  <Font name="Calibri" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -1027,7 +1057,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value=""/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Serif" size="14" style="0"/>
+                  <Font name="Calibri" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
@@ -1074,6 +1104,11 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtendereco">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="18" style="0"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtenderecoActionPerformed"/>
               </Events>

@@ -175,6 +175,7 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(jLabel3);
         jLabel3.setBounds(480, 140, 60, 33);
 
+        txtnome.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnomeActionPerformed(evt);
@@ -188,6 +189,7 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(jLabel4);
         jLabel4.setBounds(30, 140, 60, 33);
 
+        txtemail.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtemailActionPerformed(evt);
@@ -211,7 +213,7 @@ public class FrmCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtcep.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtcep.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         txtcep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcepActionPerformed(evt);
@@ -313,6 +315,7 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(jLabel12);
         jLabel12.setBounds(230, 190, 80, 33);
 
+        txtnumero.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         txtnumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnumeroActionPerformed(evt);
@@ -331,7 +334,7 @@ public class FrmCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtcelular.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtcelular.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         txtcelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcelularActionPerformed(evt);
@@ -350,6 +353,7 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(jLabel15);
         jLabel15.setBounds(30, 240, 60, 33);
 
+        txtbairro.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtbairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtbairroActionPerformed(evt);
@@ -358,6 +362,7 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(txtbairro);
         txtbairro.setBounds(100, 240, 180, 34);
 
+        txtcidade.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtcidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcidadeActionPerformed(evt);
@@ -614,6 +619,7 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(jPanel5);
         jPanel5.setBounds(0, 0, 0, 0);
 
+        txtcomplemento.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtcomplemento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcomplementoActionPerformed(evt);
@@ -632,7 +638,7 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(jLabel33);
         jLabel33.setBounds(580, 240, 110, 33);
 
-        cbuf.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        cbuf.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         cbuf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         cbuf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -653,7 +659,7 @@ public class FrmCliente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtrg.setText("");
-        txtrg.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtrg.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         txtrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtrgActionPerformed(evt);
@@ -673,7 +679,7 @@ public class FrmCliente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtcpf.setText("");
-        txtcpf.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtcpf.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         txtcpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcpfActionPerformed(evt);
@@ -706,6 +712,7 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(txtcelular1);
         txtcelular1.setBounds(550, 140, 170, 30);
 
+        txtendereco.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtendereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtenderecoActionPerformed(evt);
