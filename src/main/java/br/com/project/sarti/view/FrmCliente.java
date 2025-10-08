@@ -660,7 +660,7 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel35.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel35.setText("CPF:");
         painelDados.add(jLabel35);
-        jLabel35.setBounds(250, 300, 60, 33);
+        jLabel35.setBounds(410, 90, 60, 33);
 
         try {
             txtcpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -675,7 +675,7 @@ public class FrmCliente extends javax.swing.JFrame {
             }
         });
         painelDados.add(txtcpf);
-        txtcpf.setBounds(320, 300, 110, 30);
+        txtcpf.setBounds(460, 90, 110, 30);
 
         btnpesquisarcod.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         btnpesquisarcod.setText("Pesquisar");
@@ -685,7 +685,7 @@ public class FrmCliente extends javax.swing.JFrame {
             }
         });
         painelDados.add(btnpesquisarcod);
-        btnpesquisarcod.setBounds(230, 20, 120, 50);
+        btnpesquisarcod.setBounds(600, 80, 90, 40);
 
         try {
             txtcelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # #### - ####")));
