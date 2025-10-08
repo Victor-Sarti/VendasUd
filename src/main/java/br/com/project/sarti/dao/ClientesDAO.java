@@ -165,7 +165,7 @@ public class ClientesDAO {
         try {
            
             //1- criar o sql, organizar e executar
-            String sql = "select * from tb_clientes where nome = ?";
+            String sql = "select * from tb_clientes where cpf = ?";
             
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, cpf);

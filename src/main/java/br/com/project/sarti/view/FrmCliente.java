@@ -8,6 +8,7 @@ import br.com.project.sarti.dao.ClientesDAO;
 import br.com.project.sarti.model.Clientes;
 import br.com.project.sarti.model.Utilitarios;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,36 +17,34 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmCliente extends javax.swing.JFrame {
 
-    
     //metodo listar na tabela
-    public void listar(){
+    public void listar() {
         ClientesDAO dao = new ClientesDAO();
-        List<Clientes>lista = dao.listarClientes();   
+        List<Clientes> lista = dao.listarClientes();
         //cria o obj que armazena os dados para colocar na tabela
         DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
         dados.setNumRows(0);
         //definindo a ordem da tabela 
-        for(Clientes c: lista){
-                dados.addRow(new Object[]{
-                    c.getId(),
-                    c.getNome(),
-                    c.getRg(),
-                    c.getCpf(),
-                    c.getEmail(),
-                    c.getCelular(),
-                    c.getCep(),
-                    c.getEndereco(),
-                    c.getNumero(),
-                    c.getComplemento(),
-                    c.getBairro(),
-                    c.getCidade(),
-                    c.getUf()
-                });
+        for (Clientes c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getUf()
+            });
 
         }
     }
-    
-    
+
     public FrmCliente() {
         initComponents();
     }
@@ -130,7 +129,7 @@ public class FrmCliente extends javax.swing.JFrame {
         txtrg = new javax.swing.JFormattedTextField();
         jLabel35 = new javax.swing.JLabel();
         txtcpf = new javax.swing.JFormattedTextField();
-        btnpesquisarcod = new javax.swing.JButton();
+        btnpesquisarcpf = new javax.swing.JButton();
         txtcelular1 = new javax.swing.JFormattedTextField();
         txtendereco = new javax.swing.JTextField();
         painelConsulta = new javax.swing.JPanel();
@@ -677,15 +676,15 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(txtcpf);
         txtcpf.setBounds(460, 90, 110, 30);
 
-        btnpesquisarcod.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        btnpesquisarcod.setText("Pesquisar");
-        btnpesquisarcod.addActionListener(new java.awt.event.ActionListener() {
+        btnpesquisarcpf.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        btnpesquisarcpf.setText("Pesquisar");
+        btnpesquisarcpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpesquisarcodActionPerformed(evt);
+                btnpesquisarcpfActionPerformed(evt);
             }
         });
-        painelDados.add(btnpesquisarcod);
-        btnpesquisarcod.setBounds(600, 80, 90, 40);
+        painelDados.add(btnpesquisarcpf);
+        btnpesquisarcpf.setBounds(600, 80, 90, 40);
 
         try {
             txtcelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # #### - ####")));
@@ -978,70 +977,94 @@ public class FrmCliente extends javax.swing.JFrame {
 
     private void txtpesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpesquisaActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtpesquisaActionPerformed
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
         //Boatao Pesquisar 
-        String nome = "%" + txtpesquisa.getText()+ "%";
-        
-                ClientesDAO dao = new ClientesDAO();
-        List<Clientes>lista = dao.BucarCliente(nome);   
+        String nome = "%" + txtpesquisa.getText() + "%";
+
+        ClientesDAO dao = new ClientesDAO();
+        List<Clientes> lista = dao.BucarCliente(nome);
         //cria o obj que armazena os dados para colocar na tabela
         DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
         dados.setNumRows(0);
         //definindo a ordem da tabela 
-        for(Clientes c: lista){
-                dados.addRow(new Object[]{
-                    c.getId(),
-                    c.getNome(),
-                    c.getRg(),
-                    c.getCpf(),
-                    c.getEmail(),
-                    c.getCelular(),
-                    c.getCep(),
-                    c.getEndereco(),
-                    c.getNumero(),
-                    c.getComplemento(),
-                    c.getBairro(),
-                    c.getCidade(),
-                    c.getUf()
-                });
+        for (Clientes c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getUf()
+            });
 
         }
-        
+
     }//GEN-LAST:event_btnpesquisarActionPerformed
 
     private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
         // TODO add your handling code here:
-                   new Utilitarios().LimpaTela(painelDados);
+        new Utilitarios().LimpaTela(painelDados);
 
     }//GEN-LAST:event_btnnovoActionPerformed
 
-    private void btnpesquisarcodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarcodActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnpesquisarcodActionPerformed
+    private void btnpesquisarcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarcpfActionPerformed
+        //botao pesquisar cpf
+            String cpf = txtcpf.getText();
+            Clientes obj = new Clientes();
+            ClientesDAO dao = new ClientesDAO();
+            obj = dao.consultaClienteporCPF(cpf);
+            if(obj.getCpf()!= null){
+
+            //exibir os dados no campo de texto
+            txtcodigo.setText(String.valueOf(obj.getId()));
+            txtnome.setText(obj.getNome());
+            txtrg.setText(obj.getRg());
+            txtcpf.setText(obj.getCpf());
+            txtemail.setText(obj.getEmail());
+            txtcelular.setText(obj.getCelular());
+            txtcep.setText(obj.getCep());
+            txtendereco.setText(obj.getEndereco());
+            txtnumero.setText(String.valueOf(obj.getNumero()));
+            txtcomplemento.setText(obj.getComplemento());
+            txtbairro.setText(obj.getBairro());
+            txtcidade.setText(obj.getCidade());
+            cbuf.setSelectedItem(obj.getUf());
+            }
+            else{
+            JOptionPane.showMessageDialog(null, "Cliente não encontrado");
+
+            }
+    }//GEN-LAST:event_btnpesquisarcpfActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
-    
-            Clientes obj = new Clientes();
-            obj.setNome(txtnome.getText());
-            obj.setRg(txtrg.getText());
-            obj.setCpf(txtcpf.getText());
-            obj.setEmail(txtemail.getText());
-            obj.setCelular(txtnumero.getText());
-            obj.setCep(txtcep.getText());
-            obj.setEndereco(txtnumero.getText());
-            obj.setNumero(Integer.parseInt(txtnumero.getText()));
-            obj.setComplemento(txtcomplemento.getText());
-            obj.setBairro(txtbairro.getText());
-            obj.setCidade(txtcidade.getText());
-            obj.setUf(cbuf.getSelectedItem().toString());
-            
-            ClientesDAO dao = new ClientesDAO();
-            dao.cadastrarCliente(obj);
-             new Utilitarios().LimpaTela(painelDados);
 
+        Clientes obj = new Clientes();
+        obj.setNome(txtnome.getText());
+        obj.setRg(txtrg.getText());
+        obj.setCpf(txtcpf.getText());
+        obj.setEmail(txtemail.getText());
+        obj.setCelular(txtnumero.getText());
+        obj.setCep(txtcep.getText());
+        obj.setEndereco(txtnumero.getText());
+        obj.setNumero(Integer.parseInt(txtnumero.getText()));
+        obj.setComplemento(txtcomplemento.getText());
+        obj.setBairro(txtbairro.getText());
+        obj.setCidade(txtcidade.getText());
+        obj.setUf(cbuf.getSelectedItem().toString());
+
+        ClientesDAO dao = new ClientesDAO();
+        dao.cadastrarCliente(obj);
+        new Utilitarios().LimpaTela(painelDados);
 
 
     }//GEN-LAST:event_btnsalvarActionPerformed
@@ -1065,16 +1088,15 @@ public class FrmCliente extends javax.swing.JFrame {
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // Botao excluir 
-        
-         Clientes obj = new Clientes();
-       
-            
-            obj.setId(Integer.parseInt(txtcodigo.getText()));
-            
-            ClientesDAO dao = new ClientesDAO();
-            dao.excluirCliente(obj);
-            
-             new Utilitarios().LimpaTela(painelDados);
+
+        Clientes obj = new Clientes();
+
+        obj.setId(Integer.parseInt(txtcodigo.getText()));
+
+        ClientesDAO dao = new ClientesDAO();
+        dao.excluirCliente(obj);
+
+        new Utilitarios().LimpaTela(painelDados);
 
     }//GEN-LAST:event_btnexcluirActionPerformed
 
@@ -1082,7 +1104,7 @@ public class FrmCliente extends javax.swing.JFrame {
         //pega os dados 
         //Essa linha faz com que o programa mude automaticamente para a primeira aba do painel
         painel.setSelectedIndex(0);
-        
+
         //Quando o usuário clica em uma linha da tabela de clientes, o programa pega o valor da primeira coluna (geralmente o código do cliente) e o exibe no campo de texto txtcodigo.
         txtcodigo.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 0).toString());
         txtnome.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 1).toString());
@@ -1090,7 +1112,7 @@ public class FrmCliente extends javax.swing.JFrame {
         txtcpf.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 3).toString());
         txtemail.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 4).toString());
         txtcelular.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 5).toString());
-        txtcep.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(),6).toString());
+        txtcep.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 6).toString());
         txtendereco.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 7).toString());
         txtnumero.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 8).toString());
         txtcomplemento.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 9).toString());
@@ -1100,57 +1122,57 @@ public class FrmCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tabelaClientesMouseClicked
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-    // Botao editar
-    
-       Clientes obj = new Clientes();
-            obj.setNome(txtnome.getText());
-            obj.setRg(txtrg.getText());
-            obj.setCpf(txtcpf.getText());
-            obj.setEmail(txtemail.getText());
-            obj.setCelular(txtnumero.getText());
-            obj.setCep(txtcep.getText());
-            obj.setEndereco(txtnumero.getText());
-            obj.setNumero(Integer.parseInt(txtnumero.getText()));
-            obj.setComplemento(txtcomplemento.getText());
-            obj.setBairro(txtbairro.getText());
-            obj.setCidade(txtcidade.getText());
-            obj.setUf(cbuf.getSelectedItem().toString());
-            
-            obj.setId(Integer.parseInt(txtcodigo.getText()));
-            
-            ClientesDAO dao = new ClientesDAO();
-            dao.alterarCliente(obj);
-            
-           new Utilitarios().LimpaTela(painelDados);
+        // Botao editar
+
+        Clientes obj = new Clientes();
+        obj.setNome(txtnome.getText());
+        obj.setRg(txtrg.getText());
+        obj.setCpf(txtcpf.getText());
+        obj.setEmail(txtemail.getText());
+        obj.setCelular(txtnumero.getText());
+        obj.setCep(txtcep.getText());
+        obj.setEndereco(txtnumero.getText());
+        obj.setNumero(Integer.parseInt(txtnumero.getText()));
+        obj.setComplemento(txtcomplemento.getText());
+        obj.setBairro(txtbairro.getText());
+        obj.setCidade(txtcidade.getText());
+        obj.setUf(cbuf.getSelectedItem().toString());
+
+        obj.setId(Integer.parseInt(txtcodigo.getText()));
+
+        ClientesDAO dao = new ClientesDAO();
+        dao.alterarCliente(obj);
+
+        new Utilitarios().LimpaTela(painelDados);
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
         //Conforme digita aparece 
-        
-        String nome = "%" + txtpesquisa.getText()+ "%";
-        
-                ClientesDAO dao = new ClientesDAO();
-        List<Clientes>lista = dao.BucarCliente(nome);   
+
+        String nome = "%" + txtpesquisa.getText() + "%";
+
+        ClientesDAO dao = new ClientesDAO();
+        List<Clientes> lista = dao.BucarCliente(nome);
         //cria o obj que armazena os dados para colocar na tabela
         DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
         dados.setNumRows(0);
         //definindo a ordem da tabela 
-        for(Clientes c: lista){
-                dados.addRow(new Object[]{
-                    c.getId(),
-                    c.getNome(),
-                    c.getRg(),
-                    c.getCpf(),
-                    c.getEmail(),
-                    c.getCelular(),
-                    c.getCep(),
-                    c.getEndereco(),
-                    c.getNumero(),
-                    c.getComplemento(),
-                    c.getBairro(),
-                    c.getCidade(),
-                    c.getUf()
-                });
+        for (Clientes c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getUf()
+            });
 
         }
     }//GEN-LAST:event_txtpesquisaKeyPressed
@@ -1196,7 +1218,7 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnexcluir;
     private javax.swing.JButton btnnovo;
     private javax.swing.JButton btnpesquisar;
-    private javax.swing.JButton btnpesquisarcod;
+    private javax.swing.JButton btnpesquisarcpf;
     private javax.swing.JButton btnsalvar;
     private javax.swing.JComboBox<String> cbuf;
     private javax.swing.JFormattedTextField jFormattedTextField10;
