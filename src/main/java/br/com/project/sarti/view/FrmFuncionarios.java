@@ -768,7 +768,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             }
         });
         painelDados.add(cbNiveldeAcesso);
-        cbNiveldeAcesso.setBounds(390, 320, 130, 30);
+        cbNiveldeAcesso.setBounds(390, 320, 160, 30);
 
         painel.addTab("Dados Pessoais", painelDados);
 
