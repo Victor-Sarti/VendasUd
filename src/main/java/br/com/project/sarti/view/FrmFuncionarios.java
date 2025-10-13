@@ -65,7 +65,6 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        LabelCadastroCli = new javax.swing.JLabel();
         painel = new javax.swing.JTabbedPane();
         painelDados = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -150,6 +149,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         btnpesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaFuncionarios = new javax.swing.JTable();
+        LabelCadastroCli = new javax.swing.JLabel();
         btnexcluir = new javax.swing.JButton();
         btnnovo = new javax.swing.JButton();
         btnsalvar = new javax.swing.JButton();
@@ -161,13 +161,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 formWindowActivated(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
-
-        LabelCadastroCli.setBackground(new java.awt.Color(255, 255, 255));
-        LabelCadastroCli.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        LabelCadastroCli.setForeground(new java.awt.Color(255, 255, 255));
-        LabelCadastroCli.setText("Cadastro Funcionários");
 
         painelDados.setBackground(new java.awt.Color(255, 255, 255));
         painelDados.setLayout(null);
@@ -817,6 +813,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         painel.addTab("Consulta De Funcionários", painelConsulta);
 
+        LabelCadastroCli.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCadastroCli.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        LabelCadastroCli.setForeground(new java.awt.Color(255, 255, 255));
+        LabelCadastroCli.setText("Cadastro Funcionários");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -837,12 +838,17 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1085, 545);
+
         btnexcluir.setText("EXCLUIR");
         btnexcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnexcluirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnexcluir);
+        btnexcluir.setBounds(726, 561, 150, 50);
 
         btnnovo.setText("+ NOVO");
         btnnovo.addActionListener(new java.awt.event.ActionListener() {
@@ -850,6 +856,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 btnnovoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnnovo);
+        btnnovo.setBounds(56, 561, 150, 50);
 
         btnsalvar.setText("SALVAR");
         btnsalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -857,6 +865,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 btnsalvarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnsalvar);
+        btnsalvar.setBounds(286, 561, 150, 50);
 
         btneditar.setText("EDITAR");
         btneditar.addActionListener(new java.awt.event.ActionListener() {
@@ -864,35 +874,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 btneditarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        getContentPane().add(btneditar);
+        btneditar.setBounds(506, 561, 150, 50);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
