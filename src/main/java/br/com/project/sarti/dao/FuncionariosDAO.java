@@ -224,28 +224,31 @@ public class FuncionariosDAO {
     }
         
     
-    //metodo buscar cliente por nome
-     public List<Clientes> BucarCliente(String nome){
+    //metodo listar Funcionarios por nome - return list
+     public List<Funcionarios> ListaFuncionariosPorNome(String nome){
         
         try {
             //1- criar a lista
-            List<Clientes> lista = new ArrayList<>();
+            List<Funcionarios> lista = new ArrayList<>();
             
             //2- criar o sql, organizar e executar
-            String sql = "select * from tb_clientes where nome like ?";
+            String sql = "select * from tb_funcionarios where nome like ?";
             
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, nome);
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                Clientes obj = new Clientes();
+                Funcionarios obj = new Funcionarios();
                 
                 obj.setId(rs.getInt("id"));
                 obj.setNome(rs.getString("nome"));
                 obj.setRg(rs.getString("rg"));
                 obj.setCpf(rs.getString("cpf"));
                 obj.setEmail(rs.getString("email"));
+                obj.setSenha(rs.getString("senha"));
+                obj.setCargo(rs.getString("cargo"));
+                obj.setNivel_acesso(rs.getString("nivel_acesso"));
                 obj.setCelular(rs.getString("celular"));
                 obj.setCep(rs.getString("cep"));
                 obj.setEndereco(rs.getString("endereco"));
