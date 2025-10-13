@@ -160,7 +160,7 @@ public class ClientesDAO {
         
     }
     
-    //metodo consulta Cliente por nome
+    //metodo consulta Cliente por cpf
     public Clientes consultaClienteporCPF(String cpf){
         try {
            
