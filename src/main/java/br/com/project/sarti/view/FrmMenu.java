@@ -28,35 +28,107 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
+        jMenu13 = new javax.swing.JMenu();
+        jMenu14 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMenu15 = new javax.swing.JMenu();
+        jMenu16 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1500, 720));
-        setSize(new java.awt.Dimension(2147483647, 2147483647));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientes.png"))); // NOI18N
         jMenu1.setText("Clientes");
+
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novo.png"))); // NOI18N
+        jMenu6.setText("Controle de Clientes");
+        jMenu1.add(jMenu6);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Funcionarios");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionarios.png"))); // NOI18N
+        jMenu2.setText("Funcionários");
+
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novo.png"))); // NOI18N
+        jMenu7.setText("Controle de Funcionários");
+        jMenu2.add(jMenu7);
+
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fornecedores.png"))); // NOI18N
         jMenu3.setText("Fornecedores");
+
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novo.png"))); // NOI18N
+        jMenu8.setText("Controle de Fornecedores");
+        jMenu3.add(jMenu8);
+
         jMenuBar1.add(jMenu3);
 
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos.png"))); // NOI18N
+        jMenu9.setText("Produtos");
+
+        jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novo.png"))); // NOI18N
+        jMenu10.setText("Controle de Estoque");
+        jMenu9.add(jMenu10);
+
+        jMenu11.setText("Consulta de Produtos");
+        jMenu9.add(jMenu11);
+
+        jMenuBar1.add(jMenu9);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas.png"))); // NOI18N
         jMenu4.setText("Vendas");
+
+        jMenu12.setText("Abrir PDV");
+        jMenu4.add(jMenu12);
+
+        jMenu13.setText("Posição do Dia");
+        jMenu4.add(jMenu13);
+
+        jMenu14.setText("Histórico de Vendas");
+        jMenu4.add(jMenu14);
+
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/configuracoes.png"))); // NOI18N
         jMenu5.setText("Configurações");
+
+        jMenu15.setText("Trocar de Usuário");
+        jMenu5.add(jMenu15);
+
         jMenuBar1.add(jMenu5);
+
+        jMenu16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
+        jMenu16.setText("Sair");
+        jMenuBar1.add(jMenu16);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        
+//        this.setExtendedState(this.MAXIMIZED_BOTH);;
+//        this.setVisible(true);
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -69,7 +141,7 @@ public class FrmMenu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -95,10 +167,21 @@ public class FrmMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
+    private javax.swing.JMenu jMenu15;
+    private javax.swing.JMenu jMenu16;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

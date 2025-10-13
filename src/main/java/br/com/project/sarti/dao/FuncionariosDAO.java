@@ -6,7 +6,7 @@ package br.com.project.sarti.dao;
 
 import br.com.project.jdbc.ConnectionFactory;
 import br.com.project.sarti.model.Funcionarios;
-import br.com.project.sarti.view.FrmMenu;
+  import br.com.project.sarti.view.FrmMenu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
