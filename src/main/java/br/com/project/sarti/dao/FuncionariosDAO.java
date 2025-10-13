@@ -69,7 +69,7 @@ public class FuncionariosDAO {
       //alterar funcionario 
       public void alterarFuncionario(Funcionarios obj){
          try {
-            String sql = "UPDATE tb_funcionarios SET nome=? ,rg=? ,cpf=? ,email=?, senha=?,cargo=?,nivel_acesso=? ,celular=? ,cep=? ,endereco=? ,numero=?,"
+            String sql = "UPDATE tb_funcionarios SET nome=? ,rg=? ,cpf=? ,email=?, senha=?, cargo=? ,nivel_acesso=? ,celular=? ,cep=? ,endereco=? ,numero=?,"
                     + "complemento=?, bairro=?, cidade=?, estado=? WHERE id=?";
                                                       
         
@@ -104,7 +104,8 @@ public class FuncionariosDAO {
                         JOptionPane.showMessageDialog(null,"Erro" + erro);
 
         }
-        
+       
+         
     }
       
       

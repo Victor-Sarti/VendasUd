@@ -822,6 +822,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 tabelaFuncionariosMouseClicked(evt);
             }
         });
+        tabelaFuncionarios.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabelaFuncionariosKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaFuncionarios);
 
         painelConsulta.add(jScrollPane1);
@@ -1129,12 +1134,12 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // Botao excluir 
 
-        Clientes obj = new Clientes();
+        Funcionarios obj = new Funcionarios();
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-        ClientesDAO dao = new ClientesDAO();
-        dao.excluirCliente(obj);
+        FuncionariosDAO dao = new FuncionariosDAO();
+        dao.excluirFuncionario(obj);
 
         new Utilitarios().LimpaTela(painelDados);
 
@@ -1151,24 +1156,30 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         txtrg.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 2).toString());
         txtcpf.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 3).toString());
         txtemail.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 4).toString());
-        txtcelular.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 5).toString());
-        txtcep.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 6).toString());
-        txtendereco.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 7).toString());
-        txtnumero.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 8).toString());
-        txtcomplemento.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 9).toString());
-        txtbairro.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 10).toString());
-        txtcidade.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 11).toString());
-        cbuf.setSelectedItem(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 12).toString());
+        txtSenha.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 5).toString());
+        txtCargo.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 6).toString());
+        cbNiveldeAcesso.setSelectedItem(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 7).toString());
+        txtcelular.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 8).toString());
+        txtcep.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 9).toString());
+        txtendereco.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 10).toString());
+        txtnumero.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 11).toString());
+        txtcomplemento.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 12).toString());
+        txtbairro.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 13).toString());
+        txtcidade.setText(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 14).toString());
+        cbuf.setSelectedItem(tabelaFuncionarios.getValueAt(tabelaFuncionarios.getSelectedRow(), 15).toString());
     }//GEN-LAST:event_tabelaFuncionariosMouseClicked
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // Botao editar
 
-        Clientes obj = new Clientes();
+         Funcionarios obj = new Funcionarios();
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
         obj.setCpf(txtcpf.getText());
         obj.setEmail(txtemail.getText());
+        obj.setSenha(txtSenha.getText());
+        obj.setCargo(txtCargo.getText());
+        obj.setNivel_acesso(cbNiveldeAcesso.getSelectedItem().toString());
         obj.setCelular(txtnumero.getText());
         obj.setCep(txtcep.getText());
         obj.setEndereco(txtnumero.getText());
@@ -1180,10 +1191,10 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-        ClientesDAO dao = new ClientesDAO();
-        dao.alterarCliente(obj);
-
+        FuncionariosDAO dao = new FuncionariosDAO();
+        dao.alterarFuncionario(obj);
         new Utilitarios().LimpaTela(painelDados);
+
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
@@ -1241,6 +1252,10 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void cbNiveldeAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNiveldeAcessoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbNiveldeAcessoActionPerformed
+
+    private void tabelaFuncionariosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaFuncionariosKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelaFuncionariosKeyPressed
 
     /**
      * @param args the command line arguments
