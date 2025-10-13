@@ -4,6 +4,9 @@
  */
 package br.com.project.sarti.view;
 
+import br.com.project.sarti.dao.FuncionariosDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Victo
@@ -35,7 +38,7 @@ public class FrmLogin extends javax.swing.JFrame {
         btnEntrar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Seja Bem Vindo - Autenticação ");
         setPreferredSize(new java.awt.Dimension(800, 400));
         getContentPane().setLayout(null);
@@ -97,6 +100,11 @@ public class FrmLogin extends javax.swing.JFrame {
 
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEntrar);
         btnEntrar.setBounds(250, 260, 120, 50);
 
@@ -112,6 +120,25 @@ public class FrmLogin extends javax.swing.JFrame {
     private void txtcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcpfActionPerformed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+//botao entrar
+        try {
+            String cpf, senha;
+            
+            cpf = txtcpf.getText();
+            senha = txtSenha.getText();
+            
+            FuncionariosDAO dao = new FuncionariosDAO();
+            
+            dao.efetuarLogin(cpf, senha);
+            this.dispose();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro");
+        }
+
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments

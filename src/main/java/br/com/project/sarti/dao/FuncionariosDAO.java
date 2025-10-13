@@ -6,6 +6,7 @@ package br.com.project.sarti.dao;
 
 import br.com.project.jdbc.ConnectionFactory;
 import br.com.project.sarti.model.Funcionarios;
+import br.com.project.sarti.view.FrmMenu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -271,5 +272,37 @@ public class FuncionariosDAO {
         }
         
     }
-    
+    //metodo efetua login
+     
+     public void efetuarLogin( String cpf, String senha){
+         try {
+             // 1 passo - SQL
+             String sql = "select * from tb_funcionarios where cpf = ? and senha = ?";
+             PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, cpf);
+            stmt.setString(2, senha);
+            
+            //toda vez que usar o comando SELECT - use o ResultSet
+             ResultSet rs = stmt.executeQuery();
+             
+             if(rs.next()){
+                 //Usuario logou
+              JOptionPane.showMessageDialog(null, "Seja Bem Vindo ao Sistema");
+                 FrmMenu tela = new FrmMenu();
+                 tela.setVisible(true);
+                 
+
+                 
+             } else{
+                 //dados incorreto
+               JOptionPane.showMessageDialog(null, "Dados Incorreto");
+
+             }
+
+         } catch (SQLException erro) {
+            
+            JOptionPane.showMessageDialog(null, "Erro:" + erro);
+         }
+     }
+     
 }
