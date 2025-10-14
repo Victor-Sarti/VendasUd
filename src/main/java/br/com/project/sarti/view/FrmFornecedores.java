@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Victo
  */
-public class FrmCliente extends javax.swing.JFrame {
+public class FrmFornecedores extends javax.swing.JFrame {
 
     //metodo listar na tabela
     public void listar() {
@@ -46,7 +46,7 @@ public class FrmCliente extends javax.swing.JFrame {
         }
     }
 
-    public FrmCliente() {
+    public FrmFornecedores() {
         initComponents();
     }
 
@@ -126,10 +126,8 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         cbuf = new javax.swing.JComboBox<>();
-        jLabel34 = new javax.swing.JLabel();
-        txtrg = new javax.swing.JFormattedTextField();
         jLabel35 = new javax.swing.JLabel();
-        txtcpf = new javax.swing.JFormattedTextField();
+        txtcnpj = new javax.swing.JFormattedTextField();
         btnpesquisarcpf = new javax.swing.JButton();
         txtcelular1 = new javax.swing.JFormattedTextField();
         txtendereco = new javax.swing.JTextField();
@@ -649,45 +647,24 @@ public class FrmCliente extends javax.swing.JFrame {
         painelDados.add(cbuf);
         cbuf.setBounds(920, 242, 130, 30);
 
-        jLabel34.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jLabel34.setText("RG:");
-        painelDados.add(jLabel34);
-        jLabel34.setBounds(30, 300, 60, 33);
-
-        try {
-            txtrg.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtrg.setText("");
-        txtrg.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        txtrg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtrgActionPerformed(evt);
-            }
-        });
-        painelDados.add(txtrg);
-        txtrg.setBounds(100, 300, 120, 30);
-
         jLabel35.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jLabel35.setText("CPF:");
+        jLabel35.setText("CNPJ:");
         painelDados.add(jLabel35);
         jLabel35.setBounds(410, 90, 60, 33);
 
         try {
-            txtcpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtcnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtcpf.setText("");
-        txtcpf.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        txtcpf.addActionListener(new java.awt.event.ActionListener() {
+        txtcnpj.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        txtcnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcpfActionPerformed(evt);
+                txtcnpjActionPerformed(evt);
             }
         });
-        painelDados.add(txtcpf);
-        txtcpf.setBounds(460, 90, 110, 30);
+        painelDados.add(txtcnpj);
+        txtcnpj.setBounds(480, 90, 190, 30);
 
         btnpesquisarcpf.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         btnpesquisarcpf.setText("Pesquisar");
@@ -697,7 +674,7 @@ public class FrmCliente extends javax.swing.JFrame {
             }
         });
         painelDados.add(btnpesquisarcpf);
-        btnpesquisarcpf.setBounds(600, 80, 90, 40);
+        btnpesquisarcpf.setBounds(680, 80, 90, 40);
 
         try {
             txtcelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) # #### - ####")));
@@ -757,13 +734,13 @@ public class FrmCliente extends javax.swing.JFrame {
 
         tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "RG", "CPF", "E-mail", "Celular", "CEP", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
+                "Código", "Nome", "CNPJ", "E-mail", "Celular", "CEP", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
             }
         ));
         tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -963,13 +940,9 @@ public class FrmCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcomplementoActionPerformed
 
-    private void txtrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrgActionPerformed
+    private void txtcnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcnpjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtrgActionPerformed
-
-    private void txtcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcpfActionPerformed
+    }//GEN-LAST:event_txtcnpjActionPerformed
 
     private void txtpesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpesquisaActionPerformed
         // TODO add your handling code here:
@@ -1015,7 +988,7 @@ public class FrmCliente extends javax.swing.JFrame {
 
     private void btnpesquisarcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarcpfActionPerformed
         //botao pesquisar cpf
-            String cpf = txtcpf.getText();
+            String cpf = txtcnpj.getText();
             Clientes obj = new Clientes();
             ClientesDAO dao = new ClientesDAO();
             obj = dao.consultaClienteporCPF(cpf);
@@ -1025,7 +998,7 @@ public class FrmCliente extends javax.swing.JFrame {
             txtcodigo.setText(String.valueOf(obj.getId()));
             txtnome.setText(obj.getNome());
             txtrg.setText(obj.getRg());
-            txtcpf.setText(obj.getCpf());
+            txtcnpj.setText(obj.getCpf());
             txtemail.setText(obj.getEmail());
             txtcelular.setText(obj.getCelular());
             txtcep.setText(obj.getCep());
@@ -1047,7 +1020,7 @@ public class FrmCliente extends javax.swing.JFrame {
         Clientes obj = new Clientes();
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
-        obj.setCpf(txtcpf.getText());
+        obj.setCpf(txtcnpj.getText());
         obj.setEmail(txtemail.getText());
         obj.setCelular(txtnumero.getText());
         obj.setCep(txtcep.getText());
@@ -1080,7 +1053,6 @@ public class FrmCliente extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         //Carrega a lista 
         listar();
-         this.setExtendedState(this.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowActivated
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
@@ -1106,7 +1078,7 @@ public class FrmCliente extends javax.swing.JFrame {
         txtcodigo.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 0).toString());
         txtnome.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 1).toString());
         txtrg.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 2).toString());
-        txtcpf.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 3).toString());
+        txtcnpj.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 3).toString());
         txtemail.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 4).toString());
         txtcelular.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 5).toString());
         txtcep.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 6).toString());
@@ -1124,7 +1096,7 @@ public class FrmCliente extends javax.swing.JFrame {
         Clientes obj = new Clientes();
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
-        obj.setCpf(txtcpf.getText());
+        obj.setCpf(txtcnpj.getText());
         obj.setEmail(txtemail.getText());
         obj.setCelular(txtnumero.getText());
         obj.setCep(txtcep.getText());
@@ -1208,20 +1180,21 @@ public class FrmCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmCliente().setVisible(true);
+                new FrmFornecedores().setVisible(true);
             }
         });
     }
@@ -1269,7 +1242,6 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
@@ -1304,14 +1276,13 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtcelular1;
     private javax.swing.JFormattedTextField txtcep;
     private javax.swing.JTextField txtcidade;
+    private javax.swing.JFormattedTextField txtcnpj;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtcomplemento;
-    private javax.swing.JFormattedTextField txtcpf;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtendereco;
     private javax.swing.JTextField txtnome;
     private javax.swing.JTextField txtnumero;
     private javax.swing.JTextField txtpesquisa;
-    private javax.swing.JFormattedTextField txtrg;
     // End of variables declaration//GEN-END:variables
 }

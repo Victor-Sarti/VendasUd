@@ -84,7 +84,6 @@ public class FrmMenu extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         PainelDesktop.setMaximumSize(new java.awt.Dimension(0, 0));
-        PainelDesktop.setPreferredSize(new java.awt.Dimension(0, 0));
 
         jPanel1.setLayout(null);
 
