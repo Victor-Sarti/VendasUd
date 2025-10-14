@@ -4,6 +4,11 @@
  */
 package br.com.project.sarti.view;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Victo
@@ -15,6 +20,16 @@ public class FrmMenu extends javax.swing.JFrame {
      */
     public FrmMenu() {
         initComponents();
+        
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setResizable(true);
+
+        
+           // Abre em tela cheia automaticamente
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        // Centraliza (caso saia do modo full screen por algum motivo)
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -26,6 +41,18 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagens/fundo.jpg"));
+
+        Image image = icon.getImage();
+        PainelDesktop = new javax.swing.JDesktopPane(){
+            @Override
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Desenha a imagem redimensionada automaticamente
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
@@ -45,13 +72,19 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu16 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1500, 720));
+        setMaximumSize(new java.awt.Dimension(0, 0));
+        setSize(new java.awt.Dimension(0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
         getContentPane().setLayout(null);
+
+        PainelDesktop.setMaximumSize(new java.awt.Dimension(0, 0));
+        PainelDesktop.setPreferredSize(new java.awt.Dimension(0, 0));
+        getContentPane().add(PainelDesktop);
+        PainelDesktop.setBounds(0, 0, 860, 430);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientes.png"))); // NOI18N
         jMenu1.setText("Clientes");
@@ -166,6 +199,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane PainelDesktop;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;

@@ -152,6 +152,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 formWindowActivated(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         painelDados.setBackground(new java.awt.Color(255, 255, 255));
         painelDados.setLayout(null);
@@ -777,6 +778,9 @@ public class FrmCliente extends javax.swing.JFrame {
 
         painel.addTab("Consulta De Clientes", painelConsulta);
 
+        getContentPane().add(painel);
+        painel.setBounds(0, 126, 1058, 390);
+
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
         LabelCadastroCli.setBackground(new java.awt.Color(255, 255, 255));
@@ -801,12 +805,17 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1058, 120);
+
         btnexcluir.setText("EXCLUIR");
         btnexcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnexcluirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnexcluir);
+        btnexcluir.setBounds(730, 526, 150, 50);
 
         btnnovo.setText("NOVO");
         btnnovo.addActionListener(new java.awt.event.ActionListener() {
@@ -814,6 +823,8 @@ public class FrmCliente extends javax.swing.JFrame {
                 btnnovoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnnovo);
+        btnnovo.setBounds(60, 526, 150, 50);
 
         btnsalvar.setText("SALVAR");
         btnsalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -821,6 +832,8 @@ public class FrmCliente extends javax.swing.JFrame {
                 btnsalvarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnsalvar);
+        btnsalvar.setBounds(290, 526, 150, 50);
 
         btneditar.setText("EDITAR");
         btneditar.addActionListener(new java.awt.event.ActionListener() {
@@ -828,38 +841,8 @@ public class FrmCliente extends javax.swing.JFrame {
                 btneditarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(205, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(painel, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnnovo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btneditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
+        getContentPane().add(btneditar);
+        btneditar.setBounds(510, 526, 150, 50);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
