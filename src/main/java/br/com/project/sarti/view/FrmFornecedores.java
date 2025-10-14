@@ -5,7 +5,9 @@
 package br.com.project.sarti.view;
 
 import br.com.project.sarti.dao.ClientesDAO;
+import br.com.project.sarti.dao.FornecedoresDAO;
 import br.com.project.sarti.model.Clientes;
+import br.com.project.sarti.model.Fornecedores;
 import br.com.project.sarti.model.Utilitarios;
 import java.awt.event.KeyEvent;
 import java.util.List;
@@ -753,7 +755,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
         painelConsulta.add(jScrollPane1);
         jScrollPane1.setBounds(0, 80, 1060, 250);
 
-        painel.addTab("Consulta De Clientes", painelConsulta);
+        painel.addTab("Consulta de Fornecedores", painelConsulta);
 
         getContentPane().add(painel);
         painel.setBounds(0, 126, 1058, 390);
@@ -763,7 +765,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
         LabelCadastroCli.setBackground(new java.awt.Color(255, 255, 255));
         LabelCadastroCli.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         LabelCadastroCli.setForeground(new java.awt.Color(255, 255, 255));
-        LabelCadastroCli.setText("Cadastro Cliente");
+        LabelCadastroCli.setText("Cadastro Fornecedores");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -987,40 +989,15 @@ public class FrmFornecedores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void btnpesquisarcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarcpfActionPerformed
-        //botao pesquisar cpf
-            String cpf = txtcnpj.getText();
-            Clientes obj = new Clientes();
-            ClientesDAO dao = new ClientesDAO();
-            obj = dao.consultaClienteporCPF(cpf);
-            if(obj.getCpf()!= null){
-
-            //exibir os dados no campo de texto
-            txtcodigo.setText(String.valueOf(obj.getId()));
-            txtnome.setText(obj.getNome());
-            txtrg.setText(obj.getRg());
-            txtcnpj.setText(obj.getCpf());
-            txtemail.setText(obj.getEmail());
-            txtcelular.setText(obj.getCelular());
-            txtcep.setText(obj.getCep());
-            txtendereco.setText(obj.getEndereco());
-            txtnumero.setText(String.valueOf(obj.getNumero()));
-            txtcomplemento.setText(obj.getComplemento());
-            txtbairro.setText(obj.getBairro());
-            txtcidade.setText(obj.getCidade());
-            cbuf.setSelectedItem(obj.getUf());
-            }
-            else{
-            JOptionPane.showMessageDialog(null, "Cliente não encontrado");
-
-            }
+       
+           
     }//GEN-LAST:event_btnpesquisarcpfActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
 
-        Clientes obj = new Clientes();
+        Fornecedores obj = new Fornecedores();
         obj.setNome(txtnome.getText());
-        obj.setRg(txtrg.getText());
-        obj.setCpf(txtcnpj.getText());
+        obj.setCnpj(txtcnpj.getText());
         obj.setEmail(txtemail.getText());
         obj.setCelular(txtnumero.getText());
         obj.setCep(txtcep.getText());
@@ -1031,8 +1008,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
         obj.setCidade(txtcidade.getText());
         obj.setUf(cbuf.getSelectedItem().toString());
 
-        ClientesDAO dao = new ClientesDAO();
-        dao.cadastrarCliente(obj);
+        FornecedoresDAO dao = new FornecedoresDAO();
+        dao.cadastrarFornecedores(obj);
         new Utilitarios().LimpaTela(painelDados);
 
 
@@ -1077,7 +1054,6 @@ public class FrmFornecedores extends javax.swing.JFrame {
         //Quando o usuário clica em uma linha da tabela de clientes, o programa pega o valor da primeira coluna (geralmente o código do cliente) e o exibe no campo de texto txtcodigo.
         txtcodigo.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 0).toString());
         txtnome.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 1).toString());
-        txtrg.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 2).toString());
         txtcnpj.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 3).toString());
         txtemail.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 4).toString());
         txtcelular.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 5).toString());
@@ -1095,7 +1071,6 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         Clientes obj = new Clientes();
         obj.setNome(txtnome.getText());
-        obj.setRg(txtrg.getText());
         obj.setCpf(txtcnpj.getText());
         obj.setEmail(txtemail.getText());
         obj.setCelular(txtnumero.getText());
