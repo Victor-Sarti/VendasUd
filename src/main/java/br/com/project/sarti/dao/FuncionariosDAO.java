@@ -6,6 +6,7 @@ package br.com.project.sarti.dao;
 
 import br.com.project.jdbc.ConnectionFactory;
 import br.com.project.sarti.model.Funcionarios;
+import br.com.project.sarti.view.FrmLogin;
   import br.com.project.sarti.view.FrmMenu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -297,6 +298,7 @@ public class FuncionariosDAO {
              } else{
                  //dados incorreto
                JOptionPane.showMessageDialog(null, "Dados Incorreto");
+               new FrmLogin().setVisible(true);
 
              }
 
