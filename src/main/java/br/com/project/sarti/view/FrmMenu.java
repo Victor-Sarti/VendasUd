@@ -15,9 +15,8 @@ import javax.swing.JFrame;
  */
 public class FrmMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmMenu
-     */
+    public String usuariologado;
+    
     public FrmMenu() {
         initComponents();
         
@@ -53,6 +52,9 @@ public class FrmMenu extends javax.swing.JFrame {
             }
 
         };
+        jPanel1 = new javax.swing.JPanel();
+        lblusuario = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
@@ -83,6 +85,23 @@ public class FrmMenu extends javax.swing.JFrame {
 
         PainelDesktop.setMaximumSize(new java.awt.Dimension(0, 0));
         PainelDesktop.setPreferredSize(new java.awt.Dimension(0, 0));
+
+        jPanel1.setLayout(null);
+
+        lblusuario.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblusuario.setForeground(new java.awt.Color(0, 0, 204));
+        lblusuario.setText("aaa");
+        jPanel1.add(lblusuario);
+        lblusuario.setBounds(110, 20, 150, 20);
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel2.setText("Usúario Logado:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 20, 100, 20);
+
+        PainelDesktop.add(jPanel1);
+        jPanel1.setBounds(0, 390, 860, 40);
+
         getContentPane().add(PainelDesktop);
         PainelDesktop.setBounds(0, 0, 860, 430);
 
@@ -158,9 +177,10 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
-        
-//        this.setExtendedState(this.MAXIMIZED_BOTH);;
-//        this.setVisible(true);
+        //deixa maximizada 
+       this.setExtendedState(this.MAXIMIZED_BOTH);
+       lblusuario.setText(usuariologado);
+       this.setVisible(true);
     }//GEN-LAST:event_formWindowActivated
 
     /**
@@ -200,6 +220,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane PainelDesktop;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
@@ -217,5 +238,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblusuario;
     // End of variables declaration//GEN-END:variables
 }
