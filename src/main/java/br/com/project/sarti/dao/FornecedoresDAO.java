@@ -175,7 +175,7 @@ public class FornecedoresDAO {
     
     //excluir fornecedores 
     
-    public void excluirCliente(Fornecedores obj){
+    public void excluirFornecedores(Fornecedores obj){
              // 1- criar comando sql
         try {
             String sql = " delete from tb_fornecedores where id = ?";
