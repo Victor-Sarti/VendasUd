@@ -15,7 +15,7 @@ public class Produtos {
     private double preco;
     private int qtd_estoque;
     
-    private Fornecedores fornecedor;
+    private Fornecedores fornecedor; 
 
     public int getId() {
         return id;

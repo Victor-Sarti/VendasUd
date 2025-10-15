@@ -5,7 +5,9 @@
 package br.com.project.sarti.view;
 
 import br.com.project.sarti.dao.ClientesDAO;
+import br.com.project.sarti.dao.FornecedoresDAO;
 import br.com.project.sarti.model.Clientes;
+import br.com.project.sarti.model.Fornecedores;
 import br.com.project.sarti.model.Utilitarios;
 import java.awt.event.KeyEvent;
 import java.util.List;
@@ -111,7 +113,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         jTextField18 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        cbfornecedor = new javax.swing.JComboBox<>();
+        cbfornecedor = new javax.swing.JComboBox();
         jLabel35 = new javax.swing.JLabel();
         btnpesquisarcpf = new javax.swing.JButton();
         txtpreço = new javax.swing.JTextField();
@@ -513,14 +515,22 @@ public class FrmProdutos extends javax.swing.JFrame {
         jLabel32.setBounds(50, 240, 90, 33);
 
         cbfornecedor.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        cbfornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        cbfornecedor.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbfornecedorAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         cbfornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbfornecedorActionPerformed(evt);
             }
         });
         painelDados.add(cbfornecedor);
-        cbfornecedor.setBounds(150, 240, 230, 30);
+        cbfornecedor.setBounds(150, 240, 270, 30);
 
         jLabel35.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel35.setText("Qtd. Estoque:");
@@ -806,55 +816,12 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void btnpesquisarcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarcpfActionPerformed
-        //botao pesquisar cpf
-            String cpf = txtcpf.getText();
-            Clientes obj = new Clientes();
-            ClientesDAO dao = new ClientesDAO();
-            obj = dao.consultaClienteporCPF(cpf);
-            if(obj.getCpf()!= null){
-
-            //exibir os dados no campo de texto
-            txtcodigo.setText(String.valueOf(obj.getId()));
-            txtdescricao.setText(obj.getNome());
-            txtrg.setText(obj.getRg());
-            txtcpf.setText(obj.getCpf());
-            txtestoque.setText(obj.getEmail());
-            txtcelular.setText(obj.getCelular());
-            txtcep.setText(obj.getCep());
-            txtendereco.setText(obj.getEndereco());
-            txtnumero.setText(String.valueOf(obj.getNumero()));
-            txtcomplemento.setText(obj.getComplemento());
-            txtbairro.setText(obj.getBairro());
-            txtcidade.setText(obj.getCidade());
-            cbfornecedor.setSelectedItem(obj.getUf());
-            }
-            else{
-            JOptionPane.showMessageDialog(null, "Cliente não encontrado");
-
-            }
+        
     }//GEN-LAST:event_btnpesquisarcpfActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
 
-        Clientes obj = new Clientes();
-        obj.setNome(txtdescricao.getText());
-        obj.setRg(txtrg.getText());
-        obj.setCpf(txtcpf.getText());
-        obj.setEmail(txtestoque.getText());
-        obj.setCelular(txtnumero.getText());
-        obj.setCep(txtcep.getText());
-        obj.setEndereco(txtnumero.getText());
-        obj.setNumero(Integer.parseInt(txtnumero.getText()));
-        obj.setComplemento(txtcomplemento.getText());
-        obj.setBairro(txtbairro.getText());
-        obj.setCidade(txtcidade.getText());
-        obj.setUf(cbfornecedor.getSelectedItem().toString());
-
-        ClientesDAO dao = new ClientesDAO();
-        dao.cadastrarCliente(obj);
-        new Utilitarios().LimpaTela(painelDados);
-
-
+     
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void cbfornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbfornecedorActionPerformed
@@ -883,48 +850,11 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
         //pega os dados 
-        //Essa linha faz com que o programa mude automaticamente para a primeira aba do painel
-        painel.setSelectedIndex(0);
-
-        //Quando o usuário clica em uma linha da tabela de clientes, o programa pega o valor da primeira coluna (geralmente o código do cliente) e o exibe no campo de texto txtcodigo.
-        txtcodigo.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 0).toString());
-        txtdescricao.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 1).toString());
-        txtrg.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 2).toString());
-        txtcpf.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 3).toString());
-        txtestoque.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 4).toString());
-        txtcelular.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 5).toString());
-        txtcep.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 6).toString());
-        txtendereco.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 7).toString());
-        txtnumero.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 8).toString());
-        txtcomplemento.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 9).toString());
-        txtbairro.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 10).toString());
-        txtcidade.setText(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 11).toString());
-        cbfornecedor.setSelectedItem(tabelaClientes.getValueAt(tabelaClientes.getSelectedRow(), 12).toString());
+    
     }//GEN-LAST:event_tabelaClientesMouseClicked
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-        // Botao editar
-
-        Clientes obj = new Clientes();
-        obj.setNome(txtdescricao.getText());
-        obj.setRg(txtrg.getText());
-        obj.setCpf(txtcpf.getText());
-        obj.setEmail(txtestoque.getText());
-        obj.setCelular(txtnumero.getText());
-        obj.setCep(txtcep.getText());
-        obj.setEndereco(txtnumero.getText());
-        obj.setNumero(Integer.parseInt(txtnumero.getText()));
-        obj.setComplemento(txtcomplemento.getText());
-        obj.setBairro(txtbairro.getText());
-        obj.setCidade(txtcidade.getText());
-        obj.setUf(cbfornecedor.getSelectedItem().toString());
-
-        obj.setId(Integer.parseInt(txtcodigo.getText()));
-
-        ClientesDAO dao = new ClientesDAO();
-        dao.alterarCliente(obj);
-
-        new Utilitarios().LimpaTela(painelDados);
+   
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
@@ -961,6 +891,19 @@ public class FrmProdutos extends javax.swing.JFrame {
     private void txtpreçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpreçoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpreçoActionPerformed
+
+    private void cbfornecedorAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbfornecedorAncestorAdded
+        // carregando o combobox fornecedores 
+        
+        FornecedoresDAO daoof = new FornecedoresDAO();
+        
+        List<Fornecedores> listdefornecedores = daoof.listarFornecedores();
+        //evita dublicação no banco
+        cbfornecedor.removeAll();
+        for(Fornecedores f : listdefornecedores){
+            cbfornecedor.addItem(f);
+        }
+    }//GEN-LAST:event_cbfornecedorAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -1006,7 +949,7 @@ public class FrmProdutos extends javax.swing.JFrame {
     private javax.swing.JButton btnpesquisar;
     private javax.swing.JButton btnpesquisarcpf;
     private javax.swing.JButton btnsalvar;
-    private javax.swing.JComboBox<String> cbfornecedor;
+    private javax.swing.JComboBox cbfornecedor;
     private javax.swing.JFormattedTextField jFormattedTextField10;
     private javax.swing.JFormattedTextField jFormattedTextField11;
     private javax.swing.JFormattedTextField jFormattedTextField12;
