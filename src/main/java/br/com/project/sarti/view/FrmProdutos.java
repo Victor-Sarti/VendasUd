@@ -60,12 +60,6 @@ public class FrmProdutos extends javax.swing.JFrame {
     private void initComponents() {
 
         painel = new javax.swing.JTabbedPane();
-        painelConsulta = new javax.swing.JPanel();
-        jLabel36 = new javax.swing.JLabel();
-        txtpesquisa = new javax.swing.JTextField();
-        btnpesquisar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaClientes = new javax.swing.JTable();
         painelDados = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
@@ -121,6 +115,12 @@ public class FrmProdutos extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         btnpesquisarcpf = new javax.swing.JButton();
         txtpreço = new javax.swing.JTextField();
+        painelConsulta = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        txtpesquisa = new javax.swing.JTextField();
+        btnpesquisar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaClientes = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         LabelCadastroCli = new javax.swing.JLabel();
         btnexcluir = new javax.swing.JButton();
@@ -135,60 +135,6 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(null);
-
-        painelConsulta.setBackground(new java.awt.Color(255, 255, 255));
-        painelConsulta.setLayout(null);
-
-        jLabel36.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jLabel36.setText("Nome:");
-        painelConsulta.add(jLabel36);
-        jLabel36.setBounds(10, 30, 60, 33);
-
-        txtpesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtpesquisaActionPerformed(evt);
-            }
-        });
-        txtpesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtpesquisaKeyPressed(evt);
-            }
-        });
-        painelConsulta.add(txtpesquisa);
-        txtpesquisa.setBounds(80, 30, 320, 34);
-
-        btnpesquisar.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        btnpesquisar.setText("Pesquisar");
-        btnpesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpesquisarActionPerformed(evt);
-            }
-        });
-        painelConsulta.add(btnpesquisar);
-        btnpesquisar.setBounds(440, 30, 120, 40);
-
-        tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Código", "Nome", "RG", "CPF", "E-mail", "Celular", "CEP", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
-            }
-        ));
-        tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaClientesMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabelaClientes);
-
-        painelConsulta.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 80, 1060, 250);
-
-        painel.addTab("Consulta de Produtos", painelConsulta);
 
         painelDados.setBackground(new java.awt.Color(255, 255, 255));
         painelDados.setLayout(null);
@@ -601,6 +547,60 @@ public class FrmProdutos extends javax.swing.JFrame {
         txtpreço.setBounds(110, 160, 130, 34);
 
         painel.addTab("Dados do Produto", painelDados);
+
+        painelConsulta.setBackground(new java.awt.Color(255, 255, 255));
+        painelConsulta.setLayout(null);
+
+        jLabel36.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel36.setText("Nome:");
+        painelConsulta.add(jLabel36);
+        jLabel36.setBounds(10, 30, 60, 33);
+
+        txtpesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpesquisaActionPerformed(evt);
+            }
+        });
+        txtpesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtpesquisaKeyPressed(evt);
+            }
+        });
+        painelConsulta.add(txtpesquisa);
+        txtpesquisa.setBounds(80, 30, 320, 34);
+
+        btnpesquisar.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        btnpesquisar.setText("Pesquisar");
+        btnpesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpesquisarActionPerformed(evt);
+            }
+        });
+        painelConsulta.add(btnpesquisar);
+        btnpesquisar.setBounds(440, 30, 120, 40);
+
+        tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Código", "Descrição", "Preço", "Qtd. Estoque", "Fornecedor"
+            }
+        ));
+        tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaClientesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabelaClientes);
+
+        painelConsulta.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 80, 1060, 250);
+
+        painel.addTab("Consulta de Produtos", painelConsulta);
 
         getContentPane().add(painel);
         painel.setBounds(0, 126, 1058, 390);
