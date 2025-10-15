@@ -24,27 +24,21 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     //metodo listar na tabela
     public void listar() {
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.listarClientes();
+        ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.listarProdutos();
         //cria o obj que armazena os dados para colocar na tabela
-        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
+        DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
+        //limpa o datemodel
         dados.setNumRows(0);
         //definindo a ordem da tabela 
-        for (Clientes c : lista) {
+        for (Produtos c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
+                c.getDescricao(),
+                c.getPreco(),
+                c.getQtd_estoque(),
+                c.getFornecedor().getNome()
+
             });
 
         }
@@ -124,7 +118,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         txtpesquisa = new javax.swing.JTextField();
         btnpesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaClientes = new javax.swing.JTable();
+        tabelaProdutos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         LabelCadastroCli = new javax.swing.JLabel();
         btnexcluir = new javax.swing.JButton();
@@ -591,7 +585,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         painelConsulta.add(btnpesquisar);
         btnpesquisar.setBounds(440, 30, 120, 40);
 
-        tabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -602,12 +596,12 @@ public class FrmProdutos extends javax.swing.JFrame {
                 "Código", "Descrição", "Preço", "Qtd. Estoque", "Fornecedor"
             }
         ));
-        tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaClientesMouseClicked(evt);
+                tabelaProdutosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabelaClientes);
+        jScrollPane1.setViewportView(tabelaProdutos);
 
         painelConsulta.add(jScrollPane1);
         jScrollPane1.setBounds(0, 80, 1060, 250);
@@ -787,7 +781,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         ClientesDAO dao = new ClientesDAO();
         List<Clientes> lista = dao.BucarCliente(nome);
         //cria o obj que armazena os dados para colocar na tabela
-        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
+        DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
         //definindo a ordem da tabela 
         for (Clientes c : lista) {
@@ -865,10 +859,10 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnexcluirActionPerformed
 
-    private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
+    private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
         //pega os dados 
     
-    }//GEN-LAST:event_tabelaClientesMouseClicked
+    }//GEN-LAST:event_tabelaProdutosMouseClicked
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
    
@@ -882,7 +876,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         ClientesDAO dao = new ClientesDAO();
         List<Clientes> lista = dao.BucarCliente(nome);
         //cria o obj que armazena os dados para colocar na tabela
-        DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
+        DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
         //definindo a ordem da tabela 
         for (Clientes c : lista) {
@@ -1021,7 +1015,7 @@ public class FrmProdutos extends javax.swing.JFrame {
     private javax.swing.JTabbedPane painel;
     private javax.swing.JPanel painelConsulta;
     private javax.swing.JPanel painelDados;
-    private javax.swing.JTable tabelaClientes;
+    private javax.swing.JTable tabelaProdutos;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdescricao;
     private javax.swing.JTextField txtestoque;
