@@ -521,6 +521,11 @@ public class FrmProdutos extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        cbfornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbfornecedorMouseClicked(evt);
+            }
+        });
         cbfornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbfornecedorActionPerformed(evt);
@@ -806,7 +811,28 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void btnpesquisarcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarcpfActionPerformed
+        String nome = txtdescricao.getText();
+        Produtos obj = new Produtos();
+        ProdutosDAO dao = new ProdutosDAO();
         
+        obj = dao.consultaProdutosporNome(nome);
+        cbfornecedor.removeAllItems();
+        
+        if(obj.getDescricao()!= null){
+        txtcodigo.setText(String.valueOf(obj.getId()));
+        txtdescricao.setText(obj.getDescricao());
+        txtpreço.setText(String.valueOf(obj.getPreco()));
+        txtestoque.setText(String.valueOf(obj.getQtd_estoque()));
+        
+        Fornecedores f = new Fornecedores();
+        FornecedoresDAO fdao = new FornecedoresDAO();
+        
+        f = fdao.consultaFornecedoresPorNome(obj.getFornecedor().getNome());
+        
+        cbfornecedor.getModel().setSelectedItem(f);
+      
+                
+        }
     }//GEN-LAST:event_btnpesquisarcpfActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
@@ -930,6 +956,18 @@ public class FrmProdutos extends javax.swing.JFrame {
             cbfornecedor.addItem(f);
         }
     }//GEN-LAST:event_cbfornecedorAncestorAdded
+
+    private void cbfornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbfornecedorMouseClicked
+        // TODO add your handling code here:
+        FornecedoresDAO dao = new FornecedoresDAO();
+        List<Fornecedores> listadeFornecedores = dao.listarFornecedores();
+        cbfornecedor.removeAllItems();
+        
+        for(Fornecedores f : listadeFornecedores){
+            cbfornecedor.addItem(f);
+        }
+        
+    }//GEN-LAST:event_cbfornecedorMouseClicked
 
     /**
      * @param args the command line arguments

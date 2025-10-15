@@ -165,6 +165,45 @@ import javax.swing.JOptionPane;
         }
         
     }
+      
+       public Produtos consultaProdutosporNome(String nome){
+        try {
+           
+            //1- criar o sql, organizar e executar
+          String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p "
+                    + "inner join tb_fornecedores as f on (p.for_id = f.id) where p.descricao =?";
+            
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+                Produtos obj = new Produtos();
+                Fornecedores f = new Fornecedores();
+            if(rs.next()){
+                 
+             obj.setId(rs.getInt("p.id"));
+                obj.setDescricao(rs.getString("p.descricao"));
+                obj.setPreco(rs.getDouble("p.preco"));
+                obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
+                
+                f.setNome(rs.getString("f.nome"));
+                
+                obj.setFornecedor(f);
+             stmt.execute();
+             stmt.close();
+                
+               
+            }
+            
+            return obj;
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Produto não encontrado");
+            return null;
+        }
+        
+    }
         
     
 }
