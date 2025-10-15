@@ -779,27 +779,20 @@ public class FrmProdutos extends javax.swing.JFrame {
         //Boatao Pesquisar 
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.BucarCliente(nome);
+        ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.listarProdutosPorNome(nome);
         //cria o obj que armazena os dados para colocar na tabela
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
         //definindo a ordem da tabela 
-        for (Clientes c : lista) {
+        for ( Produtos c : lista) {
             dados.addRow(new Object[]{
-                c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
+                 c.getId(),
+                c.getDescricao(),
+                c.getPreco(),
+                c.getQtd_estoque(),
+                c.getFornecedor().getNome()
+
             });
 
         }
@@ -902,28 +895,20 @@ public class FrmProdutos extends javax.swing.JFrame {
         //Conforme digita aparece 
 
         String nome = "%" + txtpesquisa.getText() + "%";
-
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.BucarCliente(nome);
+  ProdutosDAO dao = new ProdutosDAO();
+        List<Produtos> lista = dao.listarProdutosPorNome(nome);
         //cria o obj que armazena os dados para colocar na tabela
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
         //definindo a ordem da tabela 
-        for (Clientes c : lista) {
+        for ( Produtos c : lista) {
             dados.addRow(new Object[]{
-                c.getId(),
-                c.getNome(),
-                c.getRg(),
-                c.getCpf(),
-                c.getEmail(),
-                c.getCelular(),
-                c.getCep(),
-                c.getEndereco(),
-                c.getNumero(),
-                c.getComplemento(),
-                c.getBairro(),
-                c.getCidade(),
-                c.getUf()
+                 c.getId(),
+                c.getDescricao(),
+                c.getPreco(),
+                c.getQtd_estoque(),
+                c.getFornecedor().getNome()
+
             });
 
         }
