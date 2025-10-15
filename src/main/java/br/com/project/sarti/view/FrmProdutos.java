@@ -14,6 +14,7 @@ import br.com.project.sarti.model.Utilitarios;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -860,12 +861,41 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnexcluirActionPerformed
 
     private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
-        //pega os dados 
+        //pega os dados
+         painel.setSelectedIndex(0);
+    txtcodigo.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(),0).toString());
+    txtdescricao.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(),1).toString());
+    txtpreço.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(),2).toString());
+    txtestoque.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(),3).toString());
     
+    Fornecedores f = new Fornecedores();
+    FornecedoresDAO dao = new FornecedoresDAO();
+    f = dao.consultaFornecedoresPorNome(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(),4).toString());
+    
+    cbfornecedor.removeAllItems();
+    cbfornecedor.getModel().setSelectedItem(f);
+   
     }//GEN-LAST:event_tabelaProdutosMouseClicked
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
    
+         Produtos obj = new Produtos();
+         obj.setId(Integer.parseInt(txtcodigo.getText()));
+        obj.setDescricao(txtdescricao.getText());
+        obj.setPreco(Double.parseDouble(txtpreço.getText()));
+        obj.setQtd_estoque(Integer.parseInt(txtestoque.getText()));
+        
+        //criar um objeto de fornecedor
+        
+        Fornecedores f = new Fornecedores();
+        f = (Fornecedores) cbfornecedor.getSelectedItem();
+        obj.setFornecedor(f);
+        
+        ProdutosDAO dao = new ProdutosDAO();
+        dao.alterar(obj);
+        
+         new Utilitarios().LimpaTela(painelDados);
+
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
