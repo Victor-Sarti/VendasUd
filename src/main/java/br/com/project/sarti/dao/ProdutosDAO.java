@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
     
     public void cadastrar(Produtos obj){
         try {
-            String sql = "insert into tb_produtos(decricao,preco,qtd_estoque,for_id) values(?,?,?,?)";
+            String sql = "insert into tb_produtos(descricao,preco,qtd_estoque,for_id) values(?,?,?,?)";
              PreparedStatement stmt = con.prepareStatement(sql);
              stmt.setString(1, obj.getDescricao());
              stmt.setDouble(2, obj.getPreco());

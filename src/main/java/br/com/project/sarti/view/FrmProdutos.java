@@ -6,8 +6,10 @@ package br.com.project.sarti.view;
 
 import br.com.project.sarti.dao.ClientesDAO;
 import br.com.project.sarti.dao.FornecedoresDAO;
+import br.com.project.sarti.dao.ProdutosDAO;
 import br.com.project.sarti.model.Clientes;
 import br.com.project.sarti.model.Fornecedores;
+import br.com.project.sarti.model.Produtos;
 import br.com.project.sarti.model.Utilitarios;
 import java.awt.event.KeyEvent;
 import java.util.List;
@@ -820,6 +822,21 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnpesquisarcpfActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
+        Produtos obj = new Produtos();
+        obj.setDescricao(txtdescricao.getText());
+        obj.setPreco(Double.parseDouble(txtpreço.getText()));
+        obj.setQtd_estoque(Integer.parseInt(txtestoque.getText()));
+        
+        //criar um objeto de fornecedor
+        
+        Fornecedores f = new Fornecedores();
+        f = (Fornecedores) cbfornecedor.getSelectedItem();
+        obj.setFornecedor(f);
+        
+        ProdutosDAO dao = new ProdutosDAO();
+        dao.cadastrar(obj);
+        
+         new Utilitarios().LimpaTela(painelDados);
 
      
     }//GEN-LAST:event_btnsalvarActionPerformed
