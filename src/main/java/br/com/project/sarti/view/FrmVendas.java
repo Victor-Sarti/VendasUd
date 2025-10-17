@@ -4,18 +4,7 @@
  */
 package br.com.project.sarti.view;
 
-import br.com.project.sarti.dao.ClientesDAO;
-import br.com.project.sarti.dao.FornecedoresDAO;
-import br.com.project.sarti.dao.ProdutosDAO;
-import br.com.project.sarti.model.Clientes;
-import br.com.project.sarti.model.Fornecedores;
-import br.com.project.sarti.model.Produtos;
-import br.com.project.sarti.model.Utilitarios;
-import java.awt.event.KeyEvent;
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.JTabbedPane;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -23,27 +12,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmVendas extends javax.swing.JFrame {
 
-    //metodo listar na tabela
-    public void listar() {
-        ProdutosDAO dao = new ProdutosDAO();
-        List<Produtos> lista = dao.listarProdutos();
-        //cria o obj que armazena os dados para colocar na tabela
-        DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
-        //limpa o datemodel
-        dados.setNumRows(0);
-        //definindo a ordem da tabela 
-        for (Produtos c : lista) {
-            dados.addRow(new Object[]{
-                c.getId(),
-                c.getDescricao(),
-                c.getPreco(),
-                c.getQtd_estoque(),
-                c.getFornecedor().getNome()
-
-            });
-
-        }
-    }
 
     public FrmVendas() {
         initComponents();
@@ -360,43 +328,16 @@ public class FrmVendas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        //Carrega a lista 
-        listar();
+
          this.setExtendedState(this.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowActivated
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // Botao excluir 
-
-        Produtos obj = new Produtos();
-
-        obj.setId(Integer.parseInt(txtcodigo.getText()));
-
-        ProdutosDAO dao = new ProdutosDAO();
-        dao.excluir(obj);
-
-        new Utilitarios().LimpaTela(painelDados);
-
+      
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
-   
-         Produtos obj = new Produtos();
-         obj.setId(Integer.parseInt(txtcodigo.getText()));
-        obj.setDescricao(txtdescricao.getText());
-        obj.setPreco(Double.parseDouble(txtcodigo.getText()));
-        obj.setQtd_estoque(Integer.parseInt(txtqtd.getText()));
-        
-        //criar um objeto de fornecedor
-        
-        Fornecedores f = new Fornecedores();
-        f = (Fornecedores) cbfornecedor.getSelectedItem();
-        obj.setFornecedor(f);
-        
-        ProdutosDAO dao = new ProdutosDAO();
-        dao.alterar(obj);
-        
-         new Utilitarios().LimpaTela(painelDados);
+
 
     }//GEN-LAST:event_btnPagamentoActionPerformed
 
@@ -429,27 +370,7 @@ public class FrmVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtprecoActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        String nome = txtdescricao.getText();
-        Produtos obj = new Produtos();
-        ProdutosDAO dao = new ProdutosDAO();
-
-        obj = dao.consultaProdutosporNome(nome);
-        cbfornecedor.removeAllItems();
-
-        if(obj.getDescricao()!= null){
-            txtcodigo.setText(String.valueOf(obj.getId()));
-            txtdescricao.setText(obj.getDescricao());
-            txtcodigo.setText(String.valueOf(obj.getPreco()));
-            txtqtd.setText(String.valueOf(obj.getQtd_estoque()));
-
-            Fornecedores f = new Fornecedores();
-            FornecedoresDAO fdao = new FornecedoresDAO();
-
-            f = fdao.consultaFornecedoresPorNome(obj.getFornecedor().getNome());
-
-            cbfornecedor.getModel().setSelectedItem(f);
-
-        }
+      
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void btnBuscaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaProdutoActionPerformed
