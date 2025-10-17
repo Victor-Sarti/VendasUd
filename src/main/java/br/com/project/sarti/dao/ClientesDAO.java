@@ -182,7 +182,6 @@ public class ClientesDAO {
                 obj.setCelular(rs.getString("celular"));
                 obj.setCep(rs.getString("cep"));
                 obj.setEndereco(rs.getString("endereco"));
-                obj.setEndereco(rs.getString("endereco"));
                 obj.setNumero(rs.getInt("numero"));
                 obj.setComplemento(rs.getString("Complemento"));
                 obj.setBairro(rs.getString("bairro"));

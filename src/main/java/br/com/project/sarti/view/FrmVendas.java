@@ -4,6 +4,11 @@
  */
 package br.com.project.sarti.view;
 
+import br.com.project.sarti.dao.ClientesDAO;
+import br.com.project.sarti.dao.ProdutosDAO;
+import br.com.project.sarti.model.Clientes;
+import br.com.project.sarti.model.Produtos;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.crypto.Data;
@@ -127,7 +132,7 @@ public class FrmVendas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtdataAtual);
-        txtdataAtual.setBounds(370, 60, 110, 34);
+        txtdataAtual.setBounds(370, 60, 120, 30);
 
         jLabel5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel5.setText("Nome:");
@@ -149,6 +154,11 @@ public class FrmVendas extends javax.swing.JFrame {
         txtcpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcpfActionPerformed(evt);
+            }
+        });
+        txtcpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtcpfKeyPressed(evt);
             }
         });
         jPanel2.add(txtcpf);
@@ -218,6 +228,11 @@ public class FrmVendas extends javax.swing.JFrame {
         txtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcodigoActionPerformed(evt);
+            }
+        });
+        txtcodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtcodigoKeyPressed(evt);
             }
         });
         jPanel3.add(txtcodigo);
@@ -369,11 +384,25 @@ public class FrmVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtprecoActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-      
+       Clientes obj = new Clientes();
+            ClientesDAO dao = new ClientesDAO();
+            
+            obj = dao.consultaClienteporCPF(txtcpf.getText());
+            
+            txtnome1.setText(obj.getNome());
+            
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void btnBuscaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaProdutoActionPerformed
         // TODO add your handling code here:
+         Produtos obj = new Produtos();
+             ProdutosDAO dao = new ProdutosDAO();
+            
+            obj = dao.consultaProdutosporCodigo(Integer.parseInt(txtcodigo.getText()));
+            
+            txtdescricao.setText(obj.getDescricao());
+            txtpreco.setText(String.valueOf(obj.getPreco()));
+            
     }//GEN-LAST:event_btnBuscaProdutoActionPerformed
 
     private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
@@ -383,6 +412,35 @@ public class FrmVendas extends javax.swing.JFrame {
     private void txtnome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnome1ActionPerformed
+
+    private void txtcpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcpfKeyPressed
+        // Busca cliente por cpf
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            Clientes obj = new Clientes();
+            ClientesDAO dao = new ClientesDAO();
+            
+            obj = dao.consultaClienteporCPF(txtcpf.getText());
+            
+            txtnome1.setText(obj.getNome());
+            
+            
+        }
+    }//GEN-LAST:event_txtcpfKeyPressed
+
+    private void txtcodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodigoKeyPressed
+        // busca produto por codigo
+        
+         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            Produtos obj = new Produtos();
+             ProdutosDAO dao = new ProdutosDAO();
+            
+            obj = dao.consultaProdutosporCodigo(Integer.parseInt(txtcodigo.getText()));
+            
+            txtdescricao.setText(obj.getDescricao());
+            txtpreco.setText(String.valueOf(obj.getPreco()));
+            
+        }
+    }//GEN-LAST:event_txtcodigoKeyPressed
 
     /**
      * @param args the command line arguments
