@@ -11,6 +11,7 @@ import br.com.project.sarti.model.Produtos;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.Data;
 
 
@@ -20,6 +21,11 @@ import javax.xml.crypto.Data;
  * @author Victo
  */
 public class FrmVendas extends javax.swing.JFrame {
+    
+    double total, subtotal, preco;
+    int qtd;
+     
+    DefaultTableModel carrinho;
 
 
     public FrmVendas() {
@@ -262,6 +268,11 @@ public class FrmVendas extends javax.swing.JFrame {
         txtpreco.setBounds(90, 140, 130, 34);
 
         btnAdd.setText("Adicionar Item");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnAdd);
         btnAdd.setBounds(180, 210, 160, 50);
 
@@ -284,10 +295,7 @@ public class FrmVendas extends javax.swing.JFrame {
 
         tabeladeItms.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Código", "Produto", "Qtd", "Preço", "Subtotal"
@@ -441,6 +449,29 @@ public class FrmVendas extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_txtcodigoKeyPressed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // btn add item
+        
+        qtd = Integer.parseInt(txtqtd.getText());
+        preco = Double.parseDouble(txtpreco.getText());
+        
+        subtotal = qtd * preco;
+        total += subtotal;
+        txtTotal.setText(String.valueOf(total));
+        
+        // adicionar o produto no carrinho 
+        carrinho = (DefaultTableModel) tabeladeItms.getModel();
+        
+        carrinho.addRow(new Object[]{
+            txtcodigo.getText(),
+            txtdescricao.getText(),
+            txtqtd.getText(),
+            txtpreco.getText(),
+            subtotal
+    });
+        
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
