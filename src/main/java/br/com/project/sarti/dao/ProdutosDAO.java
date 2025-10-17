@@ -205,43 +205,42 @@ import javax.swing.JOptionPane;
         
     }
      
-       public Produtos consultaProdutosporCodigo(int id){
-        try {
-           
-            //1- criar o sql, organizar e executar
-          String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p "
-                    + "inner join tb_fornecedores as f on (p.for_id = f.id) where p.id =?";
-            
-            
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-                Produtos obj = new Produtos();
-                Fornecedores f = new Fornecedores();
-            if(rs.next()){
-                 
-             obj.setId(rs.getInt("p.id"));
-                obj.setDescricao(rs.getString("p.descricao"));
-                obj.setPreco(rs.getDouble("p.preco"));
-                obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
-                
-                f.setNome(rs.getString("f.nome"));
-                
-                obj.setFornecedor(f);
-             stmt.execute();
-             stmt.close();
-                
-               
-            }
-            
+      public Produtos consultaProdutosporCodigo(int id) {
+    try {
+        // 1 - Criar o SQL, organizar e executar
+        String sql = "SELECT p.id, p.descricao, p.preco, p.qtd_estoque, f.nome " +
+                     "FROM tb_produtos AS p " +
+                     "INNER JOIN tb_fornecedores AS f ON (p.for_id = f.id) " +
+                     "WHERE p.id = ?";
+        
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
+
+        // Verifica se encontrou algum registro
+        if (rs.next()) {
+            Produtos obj = new Produtos();
+            Fornecedores f = new Fornecedores();
+            obj.setId(rs.getInt("p.id"));
+            obj.setDescricao(rs.getString("p.descricao"));
+            obj.setPreco(rs.getDouble("p.preco"));
+            obj.setQtd_estoque(rs.getInt("p.qtd_estoque"));
+            f.setNome(rs.getString("f.nome"));
+            obj.setFornecedor(f);
+            rs.close();
+            stmt.close();
             return obj;
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, "Produto não encontrado");
+        } else {
+            JOptionPane.showMessageDialog(null, "Produto não encontrado!");
+            rs.close();
+            stmt.close();
             return null;
         }
-        
+
+    } catch (Exception erro) {
+        JOptionPane.showMessageDialog(null, "Erro ao consultar produto: " + erro.getMessage());
+        return null;
     }
+}
     
 }

@@ -15,6 +15,11 @@ public class FrmPagamentos extends javax.swing.JFrame {
      */
     public FrmPagamentos() {
         initComponents();
+        
+        txtcartao.setText("0");
+        txtdinheiro.setText("0");
+        txtcheque.setText("0");
+        txttroco.setText("0");
     }
 
     /**
@@ -29,12 +34,12 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         LabelCadastroCli = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtnome = new javax.swing.JTextField();
-        txtnome1 = new javax.swing.JTextField();
+        txtdinheiro = new javax.swing.JTextField();
+        txtcartao = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtnome2 = new javax.swing.JTextField();
-        txtnome3 = new javax.swing.JTextField();
-        txtnome4 = new javax.swing.JTextField();
+        txtcheque = new javax.swing.JTextField();
+        txttroco = new javax.swing.JTextField();
+        txttotal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -76,57 +81,57 @@ public class FrmPagamentos extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(30, 150, 140, 33);
 
-        txtnome.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        txtnome.addActionListener(new java.awt.event.ActionListener() {
+        txtdinheiro.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        txtdinheiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnomeActionPerformed(evt);
+                txtdinheiroActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnome);
-        txtnome.setBounds(170, 140, 240, 40);
+        getContentPane().add(txtdinheiro);
+        txtdinheiro.setBounds(170, 140, 240, 40);
 
-        txtnome1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        txtnome1.addActionListener(new java.awt.event.ActionListener() {
+        txtcartao.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        txtcartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnome1ActionPerformed(evt);
+                txtcartaoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnome1);
-        txtnome1.setBounds(170, 200, 240, 40);
+        getContentPane().add(txtcartao);
+        txtcartao.setBounds(170, 200, 240, 40);
 
         jLabel6.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel6.setText("TOTAL:");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(30, 390, 140, 33);
 
-        txtnome2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        txtnome2.addActionListener(new java.awt.event.ActionListener() {
+        txtcheque.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        txtcheque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnome2ActionPerformed(evt);
+                txtchequeActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnome2);
-        txtnome2.setBounds(170, 260, 240, 40);
+        getContentPane().add(txtcheque);
+        txtcheque.setBounds(170, 260, 240, 40);
 
-        txtnome3.setEditable(false);
-        txtnome3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        txtnome3.addActionListener(new java.awt.event.ActionListener() {
+        txttroco.setEditable(false);
+        txttroco.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        txttroco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnome3ActionPerformed(evt);
+                txttrocoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnome3);
-        txtnome3.setBounds(170, 320, 240, 40);
+        getContentPane().add(txttroco);
+        txttroco.setBounds(170, 320, 240, 40);
 
-        txtnome4.setEditable(false);
-        txtnome4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        txtnome4.addActionListener(new java.awt.event.ActionListener() {
+        txttotal.setEditable(false);
+        txttotal.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        txttotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnome4ActionPerformed(evt);
+                txttotalActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnome4);
-        txtnome4.setBounds(170, 380, 240, 40);
+        getContentPane().add(txttotal);
+        txttotal.setBounds(170, 380, 240, 40);
 
         jLabel10.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel10.setText("CARTÃO:");
@@ -145,6 +150,11 @@ public class FrmPagamentos extends javax.swing.JFrame {
 
         btnFinalizarVenda.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnFinalizarVenda.setText("Finalizar Venda");
+        btnFinalizarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarVendaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnFinalizarVenda);
         btnFinalizarVenda.setBounds(130, 460, 260, 60);
 
@@ -152,25 +162,44 @@ public class FrmPagamentos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeActionPerformed
+    private void txtdinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdinheiroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnomeActionPerformed
+    }//GEN-LAST:event_txtdinheiroActionPerformed
 
-    private void txtnome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome1ActionPerformed
+    private void txtcartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcartaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnome1ActionPerformed
+    }//GEN-LAST:event_txtcartaoActionPerformed
 
-    private void txtnome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome2ActionPerformed
+    private void txtchequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtchequeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnome2ActionPerformed
+    }//GEN-LAST:event_txtchequeActionPerformed
 
-    private void txtnome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome3ActionPerformed
+    private void txttrocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttrocoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnome3ActionPerformed
+    }//GEN-LAST:event_txttrocoActionPerformed
 
-    private void txtnome4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome4ActionPerformed
+    private void txttotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnome4ActionPerformed
+    }//GEN-LAST:event_txttotalActionPerformed
+
+    private void btnFinalizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarVendaActionPerformed
+        
+        double pcartao, pcheque, pdinheiro, totalpago, totalvenda, troco;
+        //receber os valores
+        pcartao = Double.parseDouble(txtcartao.getText());
+        pcheque = Double.parseDouble(txtcheque.getText());
+        pdinheiro = Double.parseDouble(txtdinheiro.getText());
+        
+        totalvenda = Double.parseDouble(txttotal.getText());
+        
+        totalpago = pcartao + pcheque + pdinheiro;
+
+        //calcular troco
+        troco = totalpago - totalvenda;
+        txttroco.setText(String.valueOf(troco));
+        
+
+    }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,10 +245,10 @@ public class FrmPagamentos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtnome;
-    private javax.swing.JTextField txtnome1;
-    private javax.swing.JTextField txtnome2;
-    private javax.swing.JTextField txtnome3;
-    private javax.swing.JTextField txtnome4;
+    private javax.swing.JTextField txtcartao;
+    private javax.swing.JTextField txtcheque;
+    private javax.swing.JTextField txtdinheiro;
+    public javax.swing.JTextField txttotal;
+    private javax.swing.JTextField txttroco;
     // End of variables declaration//GEN-END:variables
 }
