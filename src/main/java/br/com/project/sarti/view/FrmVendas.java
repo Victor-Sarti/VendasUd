@@ -4,6 +4,10 @@
  */
 package br.com.project.sarti.view;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.xml.crypto.Data;
+
 
 
 /**
@@ -31,14 +35,14 @@ public class FrmVendas extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         btnPagamento = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        txtnome = new javax.swing.JTextField();
+        txtdataAtual = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         txtcpf = new javax.swing.JFormattedTextField();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        txtData = new javax.swing.JFormattedTextField();
         btnBuscarCliente = new javax.swing.JButton();
+        txtnome1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         txtdescricao = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -115,14 +119,15 @@ public class FrmVendas extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Cliente"));
         jPanel2.setLayout(null);
 
-        txtnome.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        txtnome.addActionListener(new java.awt.event.ActionListener() {
+        txtdataAtual.setEditable(false);
+        txtdataAtual.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        txtdataAtual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnomeActionPerformed(evt);
+                txtdataAtualActionPerformed(evt);
             }
         });
-        jPanel2.add(txtnome);
-        txtnome.setBounds(70, 130, 270, 34);
+        jPanel2.add(txtdataAtual);
+        txtdataAtual.setBounds(370, 60, 110, 34);
 
         jLabel5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel5.setText("Nome:");
@@ -159,20 +164,6 @@ public class FrmVendas extends javax.swing.JFrame {
         jPanel2.add(jLabel37);
         jLabel37.setBounds(320, 60, 60, 33);
 
-        try {
-            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtData.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        txtData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDataActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtData);
-        txtData.setBounds(370, 60, 110, 30);
-
         btnBuscarCliente.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         btnBuscarCliente.setText("Pesquisar");
         btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +173,15 @@ public class FrmVendas extends javax.swing.JFrame {
         });
         jPanel2.add(btnBuscarCliente);
         btnBuscarCliente.setBounds(190, 60, 90, 30);
+
+        txtnome1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        txtnome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnome1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtnome1);
+        txtnome1.setBounds(70, 130, 270, 34);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 120, 520, 170);
@@ -328,8 +328,11 @@ public class FrmVendas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
-         this.setExtendedState(this.MAXIMIZED_BOTH);
+        // carrega a data atual do sistema
+        Date agora = new Date();
+        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
+        String dataformatada = dataBr.format(agora);
+        txtdataAtual.setText(dataformatada);
     }//GEN-LAST:event_formWindowActivated
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -341,17 +344,13 @@ public class FrmVendas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnPagamentoActionPerformed
 
-    private void txtnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeActionPerformed
+    private void txtdataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdataAtualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnomeActionPerformed
+    }//GEN-LAST:event_txtdataAtualActionPerformed
 
     private void txtcpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcpfActionPerformed
-
-    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDataActionPerformed
 
     private void txtdescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdescricaoActionPerformed
         // TODO add your handling code here:
@@ -380,6 +379,10 @@ public class FrmVendas extends javax.swing.JFrame {
     private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTotalActionPerformed
+
+    private void txtnome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnome1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnome1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -442,12 +445,12 @@ public class FrmVendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabeladeItms;
-    private javax.swing.JFormattedTextField txtData;
     private javax.swing.JTextField txtTotal;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JFormattedTextField txtcpf;
+    private javax.swing.JTextField txtdataAtual;
     private javax.swing.JTextField txtdescricao;
-    private javax.swing.JTextField txtnome;
+    private javax.swing.JTextField txtnome1;
     private javax.swing.JTextField txtpreco;
     private javax.swing.JTextField txtqtd;
     // End of variables declaration//GEN-END:variables
