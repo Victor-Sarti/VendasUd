@@ -6,10 +6,12 @@ import br.com.project.sarti.model.Clientes;
 import br.com.project.sarti.model.Vendas;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 public class FrmPagamentos extends javax.swing.JFrame {
     
     Clientes clienteId = new Clientes();
+    DefaultTableModel carrinho;
 
     public FrmPagamentos() {
         initComponents();
@@ -227,7 +229,14 @@ public class FrmPagamentos extends javax.swing.JFrame {
         
         VendasDAO dao_v = new VendasDAO();
         dao_v.cadastrarVenda(objv);
-
+        
+        //retornar o id da ultima venda realizada
+        
+        objv.setId(dao_v.retornaUltimaVenda());
+        //System.out.println(" Id da Ultima venda " + objv.getId());
+        
+        
+      
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     /**
