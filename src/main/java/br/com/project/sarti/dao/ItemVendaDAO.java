@@ -16,7 +16,7 @@ public class ItemVendaDAO {
     }
    public void cadastrarItem(ItemVenda obj){
          try {
-            String sql = "insert into tb_vendas (venda_id , produto_id ,qtd, subtotal) values(?,?,?,?)";
+            String sql = "insert into tb_itensvendas (venda_id , produto_id ,qtd, subtotal) values(?,?,?,?)";
              PreparedStatement stmt = con.prepareStatement(sql);
              stmt.setInt(1, obj.getVenda().getId());
              stmt.setInt(2, obj.getProduto().getId());
@@ -25,8 +25,6 @@ public class ItemVendaDAO {
              
              stmt.execute();
              stmt.close();
-             
-              JOptionPane.showMessageDialog(null,"Item Registrado com Sucesso!!");
                 
             
         } catch (Exception erro) {

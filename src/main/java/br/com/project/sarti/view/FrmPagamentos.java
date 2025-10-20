@@ -1,11 +1,15 @@
 
 package br.com.project.sarti.view;
 
+import br.com.project.sarti.dao.ItemVendaDAO;
 import br.com.project.sarti.dao.VendasDAO;
 import br.com.project.sarti.model.Clientes;
+import br.com.project.sarti.model.ItemVenda;
+import br.com.project.sarti.model.Produtos;
 import br.com.project.sarti.model.Vendas;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmPagamentos extends javax.swing.JFrame {
@@ -234,7 +238,23 @@ public class FrmPagamentos extends javax.swing.JFrame {
         
         objv.setId(dao_v.retornaUltimaVenda());
         //System.out.println(" Id da Ultima venda " + objv.getId());
-        
+        //cadastrando os produtos na tabela itemvendas
+        for(int i = 0; i < carrinho.getRowCount(); i++){
+            Produtos objp = new Produtos();
+            ItemVenda item = new ItemVenda();
+            item.setVenda(objv);
+            
+            objp.setId(Integer.parseInt(carrinho.getValueAt(i, 0).toString()));
+            item.setProduto(objp);
+            item.setQtd(Integer.parseInt(carrinho.getValueAt(i, 2).toString()));
+            item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i, 4).toString()));
+            
+            ItemVendaDAO daoitem = new ItemVendaDAO();
+            daoitem.cadastrarItem(item);       
+        }
+     /************************************************/
+        JOptionPane.showMessageDialog(null,"Venda Registrada com Sucesso!!");
+
         
       
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
