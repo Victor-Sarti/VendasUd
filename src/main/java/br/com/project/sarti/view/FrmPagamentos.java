@@ -1,18 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package br.com.project.sarti.view;
 
-/**
- *
- * @author Victo
- */
-public class FrmPagamentos extends javax.swing.JFrame {
+import br.com.project.sarti.dao.VendasDAO;
+import br.com.project.sarti.model.Clientes;
+import br.com.project.sarti.model.Vendas;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    /**
-     * Creates new form FrmPagamentos
-     */
+public class FrmPagamentos extends javax.swing.JFrame {
+    
+    Clientes clienteId = new Clientes();
+
     public FrmPagamentos() {
         initComponents();
         
@@ -44,6 +42,9 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         btnFinalizarVenda = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtObs = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Pagamentos");
@@ -63,7 +64,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addComponent(LabelCadastroCli)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(551, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,12 +75,12 @@ public class FrmPagamentos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 570, 120);
+        jPanel1.setBounds(0, 0, 930, 120);
 
         jLabel5.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jLabel5.setText("DINHEIRO:");
+        jLabel5.setText("Obs.:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(30, 150, 140, 33);
+        jLabel5.setBounds(440, 140, 70, 33);
 
         txtdinheiro.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtdinheiro.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +159,19 @@ public class FrmPagamentos extends javax.swing.JFrame {
         getContentPane().add(btnFinalizarVenda);
         btnFinalizarVenda.setBounds(130, 460, 260, 60);
 
+        jLabel7.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jLabel7.setText("DINHEIRO:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(30, 150, 140, 33);
+
+        txtObs.setColumns(20);
+        txtObs.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        txtObs.setRows(5);
+        jScrollPane1.setViewportView(txtObs);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(510, 130, 280, 110);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -198,6 +212,21 @@ public class FrmPagamentos extends javax.swing.JFrame {
         troco = totalpago - totalvenda;
         txttroco.setText(String.valueOf(troco));
         
+        Vendas objv = new Vendas();
+        //dados do cliente (cliente_id)
+        objv.setCliente(clienteId);
+        
+        //pega a data atual
+         Date agora = new Date();
+        SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy/MM/dd");
+        String datamysql = dataEUA.format(agora);
+        objv.setData_venda(datamysql);
+        //TOTAL DA VENDA 
+        objv.setTotal_venda(totalvenda);
+        objv.setObs(txtObs.getText());
+        
+        VendasDAO dao_v = new VendasDAO();
+        dao_v.cadastrarVenda(objv);
 
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
@@ -244,7 +273,10 @@ public class FrmPagamentos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtObs;
     private javax.swing.JTextField txtcartao;
     private javax.swing.JTextField txtcheque;
     private javax.swing.JTextField txtdinheiro;

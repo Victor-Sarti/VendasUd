@@ -20,7 +20,7 @@ public class VendasDAO {
     
     public void cadastrarVenda(Vendas obj){
            try {
-            String sql = "insert into tb_vendas (cliente_id,data_venda,total_venda,observacoes) values(?,?,?,?)";
+            String sql = "insert into tb_vendas (cliente_id , data_venda ,total_venda, observacoes) values(?,?,?,?)";
              PreparedStatement stmt = con.prepareStatement(sql);
              stmt.setInt(1, obj.getCliente().getId());
              stmt.setString(2, obj.getData_venda());

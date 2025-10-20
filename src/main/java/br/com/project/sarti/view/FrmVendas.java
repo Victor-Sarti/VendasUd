@@ -21,6 +21,7 @@ import javax.xml.crypto.Data;
  * @author Victo
  */
 public class FrmVendas extends javax.swing.JFrame {
+     Clientes obj = new Clientes();
     
     double total, subtotal, preco;
     int qtd;
@@ -365,6 +366,7 @@ public class FrmVendas extends javax.swing.JFrame {
     private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
         FrmPagamentos telap = new FrmPagamentos();
         telap.txttotal.setText(String.valueOf(total));
+        telap.clienteId = obj;
         telap.setVisible(true);
         this.dispose();
 
@@ -395,7 +397,6 @@ public class FrmVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtprecoActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-       Clientes obj = new Clientes();
             ClientesDAO dao = new ClientesDAO();
             
             obj = dao.consultaClienteporCPF(txtcpf.getText());
@@ -427,7 +428,7 @@ public class FrmVendas extends javax.swing.JFrame {
     private void txtcpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcpfKeyPressed
         // Busca cliente por cpf
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            Clientes obj = new Clientes();
+           
             ClientesDAO dao = new ClientesDAO();
             
             obj = dao.consultaClienteporCPF(txtcpf.getText());
