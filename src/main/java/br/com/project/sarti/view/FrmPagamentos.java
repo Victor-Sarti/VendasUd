@@ -2,6 +2,7 @@
 package br.com.project.sarti.view;
 
 import br.com.project.sarti.dao.ItemVendaDAO;
+import br.com.project.sarti.dao.ProdutosDAO;
 import br.com.project.sarti.dao.VendasDAO;
 import br.com.project.sarti.model.Clientes;
 import br.com.project.sarti.model.ItemVenda;
@@ -240,7 +241,9 @@ public class FrmPagamentos extends javax.swing.JFrame {
         //System.out.println(" Id da Ultima venda " + objv.getId());
         //cadastrando os produtos na tabela itemvendas
         for(int i = 0; i < carrinho.getRowCount(); i++){
+           int qtd_estoque, qtd_comprada, qtd_atualizada;
             Produtos objp = new Produtos();
+            ProdutosDAO dao_produto = new ProdutosDAO();
             ItemVenda item = new ItemVenda();
             item.setVenda(objv);
             
@@ -248,6 +251,12 @@ public class FrmPagamentos extends javax.swing.JFrame {
             item.setProduto(objp);
             item.setQtd(Integer.parseInt(carrinho.getValueAt(i, 2).toString()));
             item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i, 4).toString()));
+            
+            //baixa no estoque
+            qtd_estoque = dao_produto.retornaEstoqueAtual(objp.getId());
+            qtd_comprada = Integer.parseInt(carrinho.getValueAt(i, 2).toString());
+            qtd_atualizada = qtd_estoque - qtd_comprada;
+            dao_produto.baixaEstoque(objp.getId(), qtd_atualizada);
             
             ItemVendaDAO daoitem = new ItemVendaDAO();
             daoitem.cadastrarItem(item);       
