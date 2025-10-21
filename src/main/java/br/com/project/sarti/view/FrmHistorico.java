@@ -148,7 +148,15 @@ public class FrmHistorico extends javax.swing.JFrame {
             new String [] {
                 "Código", "Data da Venda", "Cliente", "Total da Venda", "Obs"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabelaHistoricoVendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaHistoricoVendasMouseClicked(evt);
@@ -190,7 +198,15 @@ public class FrmHistorico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaHistoricoVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaHistoricoVendasMouseClicked
-       
+          // Clicar em uma venda 
+          FrmDetalheVenda tela = new FrmDetalheVenda();
+          
+            tela.txtnomecli.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 2).toString());
+            tela.txttotalvenda.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 3).toString());
+            tela.txtdataVenda.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 1).toString());
+            tela.txtobsvenda.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 4).toString());
+            
+            tela.setVisible(true);
     }//GEN-LAST:event_tabelaHistoricoVendasMouseClicked
 
     private void tabelaHistoricoVendasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaHistoricoVendasKeyPressed
@@ -230,7 +246,7 @@ public class FrmHistorico extends javax.swing.JFrame {
             dados.addRow(new Object[]{
                  v.getId(),
                 v.getData_venda(),
-                v.getClass().getName(),
+                v.getCliente().getNome(),
                 v.getTotal_venda(),
                 v.getObs()
 
@@ -286,7 +302,7 @@ public class FrmHistorico extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaHistoricoVendas;
+    public javax.swing.JTable tabelaHistoricoVendas;
     private javax.swing.JFormattedTextField txtdatafim;
     private javax.swing.JFormattedTextField txtdatainicio;
     // End of variables declaration//GEN-END:variables

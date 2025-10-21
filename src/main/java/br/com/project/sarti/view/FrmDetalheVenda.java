@@ -181,10 +181,10 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +202,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaitensvendidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaitensvendidoMouseClicked
-       
+          
     }//GEN-LAST:event_tabelaitensvendidoMouseClicked
 
     private void tabelaitensvendidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaitensvendidoKeyPressed
@@ -268,9 +268,9 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tabelaitensvendido;
-    private javax.swing.JTextField txtdataVenda;
-    private javax.swing.JTextField txtnomecli;
-    private javax.swing.JTextArea txtobsvenda;
-    private javax.swing.JTextField txttotalvenda;
+    public javax.swing.JTextField txtdataVenda;
+    public javax.swing.JTextField txtnomecli;
+    public javax.swing.JTextArea txtobsvenda;
+    public javax.swing.JTextField txttotalvenda;
     // End of variables declaration//GEN-END:variables
 }
