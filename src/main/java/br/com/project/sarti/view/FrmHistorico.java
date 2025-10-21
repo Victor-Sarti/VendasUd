@@ -1,6 +1,13 @@
 
 package br.com.project.sarti.view;
 
+import br.com.project.sarti.dao.VendasDAO;
+import br.com.project.sarti.model.Vendas;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 public class FrmHistorico extends javax.swing.JFrame {
 
     public FrmHistorico() {
@@ -207,7 +214,27 @@ public class FrmHistorico extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdatafimKeyPressed
 
     private void btnpesquisarcnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarcnpjActionPerformed
-     
+      //receber as datas 
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate data_inicio = LocalDate.parse(txtdatainicio.getText(), formato);
+        LocalDate data_fim = LocalDate.parse(txtdatafim.getText(), formato);
+        
+        VendasDAO dao = new VendasDAO();
+        List<Vendas> lista = dao.listarVendasPorPeriodo(data_inicio, data_fim);
+        DefaultTableModel dados = (DefaultTableModel) tabelaHistoricoVendas.getModel();
+        dados.setNumRows(0);
+        
+          for ( Vendas v : lista) {
+            dados.addRow(new Object[]{
+                 v.getId(),
+                v.getData_venda(),
+                v.getClass().getName(),
+                v.getTotal_venda(),
+                v.getObs()
+
+            });
+          }
+        
 
     }//GEN-LAST:event_btnpesquisarcnpjActionPerformed
 
