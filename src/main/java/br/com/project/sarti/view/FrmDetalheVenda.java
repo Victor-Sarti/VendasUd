@@ -158,7 +158,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Produto", "Qtd Comprada", "Valor", "Subtotal"
+                "Produto", "Qtd Comprada", "Valor", "Subtotal"
             }
         ));
         tabelaitensvendido.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -267,7 +267,7 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tabelaitensvendido;
+    public javax.swing.JTable tabelaitensvendido;
     public javax.swing.JTextField txtdataVenda;
     public javax.swing.JTextField txtnomecli;
     public javax.swing.JTextArea txtobsvenda;

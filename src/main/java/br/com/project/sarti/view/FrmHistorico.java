@@ -1,7 +1,10 @@
 
 package br.com.project.sarti.view;
 
+import br.com.project.sarti.dao.ItemVendaDAO;
 import br.com.project.sarti.dao.VendasDAO;
+import br.com.project.sarti.model.ItemVenda;
+import br.com.project.sarti.model.Produtos;
 import br.com.project.sarti.model.Vendas;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -206,6 +209,26 @@ public class FrmHistorico extends javax.swing.JFrame {
             tela.txtdataVenda.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 1).toString());
             tela.txtobsvenda.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 4).toString());
             
+            int venda_id = Integer.parseInt(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(),0).toString());
+            
+            //dados dos items comprados 
+            ItemVenda item = new ItemVenda();
+            ItemVendaDAO dao_item = new ItemVendaDAO();
+            List<ItemVenda> listaitens = dao_item.listarItemPorVenda(venda_id);
+            
+            DefaultTableModel dados = (DefaultTableModel) tela.tabelaitensvendido.getModel();
+        //limpa o datemodel
+        dados.setNumRows(0);
+        //definindo a ordem da tabela 
+        for (ItemVenda c : listaitens) {
+            dados.addRow(new Object[]{
+                c.getProduto().getDescricao(),
+                c.getQtd(),
+                c.getProduto().getPreco(),
+                c.getSubtotal()
+            });
+
+        }      
             tela.setVisible(true);
     }//GEN-LAST:event_tabelaHistoricoVendasMouseClicked
 
