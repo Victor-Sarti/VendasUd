@@ -4,6 +4,11 @@
  */
 package br.com.project.sarti.view;
 
+import br.com.project.sarti.dao.VendasDAO;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Victo
@@ -34,7 +39,7 @@ public class FrmTotalVendas extends javax.swing.JFrame {
         txtdata = new javax.swing.JFormattedTextField();
         btnconsultar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -135,6 +140,7 @@ public class FrmTotalVendas extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txttotalVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalVendaActionPerformed
@@ -150,7 +156,23 @@ public class FrmTotalVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdataKeyPressed
 
     private void btnconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultarActionPerformed
-       
+        //botao calcular total venda por data
+        try {
+            //receber data
+              DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+               LocalDate data_venda = LocalDate.parse(txtdata.getText(), formato);
+               
+               double total_venda;
+               
+               VendasDAO dao = new VendasDAO();
+               total_venda = dao.retornaTotalVendaPorData(data_venda);
+               
+               txttotalVenda.setText(String.valueOf(total_venda));
+                    
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Informe uma data corretamente. " + e);
+        }
 
     }//GEN-LAST:event_btnconsultarActionPerformed
 
@@ -165,7 +187,7 @@ public class FrmTotalVendas extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
