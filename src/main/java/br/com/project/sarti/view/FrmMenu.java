@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class FrmMenu extends javax.swing.JFrame {
 
@@ -60,7 +61,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu16 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(0, 0));
         setSize(new java.awt.Dimension(0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -174,6 +175,11 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenu16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
         jMenu16.setText("Sair");
+        jMenu16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu16MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu16);
 
         setJMenuBar(jMenuBar1);
@@ -211,6 +217,18 @@ public class FrmMenu extends javax.swing.JFrame {
         
         telalogin.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenu16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu16MouseClicked
+        // zsair
+        
+       int ob;
+       
+       ob = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja sair?");
+       
+       if(ob == 0){
+           System.exit(0);
+       }
+    }//GEN-LAST:event_jMenu16MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
