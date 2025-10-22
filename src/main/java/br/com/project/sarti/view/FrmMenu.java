@@ -78,15 +78,15 @@ public class FrmMenu extends javax.swing.JFrame {
         lblusuario.setForeground(new java.awt.Color(0, 0, 204));
         lblusuario.setText("aaa");
         jPanel1.add(lblusuario);
-        lblusuario.setBounds(110, 20, 150, 20);
+        lblusuario.setBounds(110, 10, 150, 20);
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel2.setText("Usúario Logado:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 20, 100, 20);
+        jLabel2.setBounds(10, 10, 100, 20);
 
         PainelDesktop.add(jPanel1);
-        jPanel1.setBounds(0, 390, 880, 40);
+        jPanel1.setBounds(0, 400, 960, 30);
 
         getContentPane().add(PainelDesktop);
         PainelDesktop.setBounds(0, 0, 960, 430);
