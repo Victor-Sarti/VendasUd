@@ -1,20 +1,14 @@
 package br.com.project.sarti.view;
 
-import br.com.project.sarti.dao.FornecedoresDAO;
-import br.com.project.sarti.dao.ItemVendaDAO;
 import br.com.project.sarti.dao.ProdutosDAO;
-import br.com.project.sarti.dao.VendasDAO;
-import br.com.project.sarti.model.Fornecedores;
-import br.com.project.sarti.model.ItemVenda;
 import br.com.project.sarti.model.Produtos;
-import br.com.project.sarti.model.Vendas;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FrmEstoque extends javax.swing.JFrame {
+    
+    int idproduto, qtd_nova;
 
     public void listar() {
         ProdutosDAO dao = new ProdutosDAO();
@@ -242,7 +236,9 @@ public class FrmEstoque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
-           txtestoqueAtual.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(),3).toString());
+        idproduto = Integer.parseInt(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(),0).toString());
+        txtpesquisa.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(),1).toString());
+        txtestoqueAtual.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(),3).toString());
 
     }//GEN-LAST:event_tabelaProdutosMouseClicked
 
@@ -287,6 +283,22 @@ public class FrmEstoque extends javax.swing.JFrame {
 
     private void btnadicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadicionarActionPerformed
         // TODO add your handling code here:
+        try {
+            int qtd_estoque, qtd;
+            
+            qtd_estoque = Integer.parseInt(txtestoqueAtual.getText());
+            qtd = Integer.parseInt(txtqtdestoque.getText());
+            
+            qtd_nova = qtd_estoque + qtd;
+            
+            ProdutosDAO dao = new ProdutosDAO();
+            dao.adicionarEstoque(idproduto, qtd_nova);
+            JOptionPane.showMessageDialog(null, "Estoque do Produto atualizado");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Selecione o Produto ou informe a nova qtd" + e);
+
+        }
     }//GEN-LAST:event_btnadicionarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
