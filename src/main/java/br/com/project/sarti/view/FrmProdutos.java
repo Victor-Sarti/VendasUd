@@ -13,6 +13,7 @@ import br.com.project.sarti.model.Produtos;
 import br.com.project.sarti.model.Utilitarios;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
@@ -47,6 +48,8 @@ public class FrmProdutos extends javax.swing.JFrame {
 
     public FrmProdutos() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }
 
     /**
@@ -610,12 +613,12 @@ public class FrmProdutos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaProdutos);
 
         painelConsulta.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 80, 1060, 250);
+        jScrollPane1.setBounds(0, 80, 1600, 270);
 
         painel.addTab("Consulta de Produtos", painelConsulta);
 
         getContentPane().add(painel);
-        painel.setBounds(0, 126, 1058, 390);
+        painel.setBounds(0, 126, 1600, 390);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -631,7 +634,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(LabelCadastroCli, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(734, Short.MAX_VALUE))
+                .addContainerGap(1276, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -642,7 +645,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1058, 120);
+        jPanel1.setBounds(0, 0, 1600, 120);
 
         btnexcluir.setText("EXCLUIR");
         btnexcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -651,7 +654,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnexcluir);
-        btnexcluir.setBounds(730, 526, 150, 50);
+        btnexcluir.setBounds(1110, 530, 150, 50);
 
         btnnovo.setText("NOVO");
         btnnovo.addActionListener(new java.awt.event.ActionListener() {
@@ -660,7 +663,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnnovo);
-        btnnovo.setBounds(60, 526, 150, 50);
+        btnnovo.setBounds(440, 530, 150, 50);
 
         btnsalvar.setText("SALVAR");
         btnsalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -669,7 +672,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnsalvar);
-        btnsalvar.setBounds(290, 526, 150, 50);
+        btnsalvar.setBounds(670, 530, 150, 50);
 
         btneditar.setText("EDITAR");
         btneditar.addActionListener(new java.awt.event.ActionListener() {
@@ -678,7 +681,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btneditar);
-        btneditar.setBounds(510, 526, 150, 50);
+        btneditar.setBounds(890, 530, 150, 50);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

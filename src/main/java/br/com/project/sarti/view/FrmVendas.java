@@ -11,6 +11,7 @@ import br.com.project.sarti.model.Produtos;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.Data;
 
@@ -31,6 +32,8 @@ public class FrmVendas extends javax.swing.JFrame {
 
     public FrmVendas() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }
 
     /**
@@ -83,31 +86,17 @@ public class FrmVendas extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setLayout(null);
 
         LabelCadastroCli.setBackground(new java.awt.Color(255, 255, 255));
         LabelCadastroCli.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         LabelCadastroCli.setForeground(new java.awt.Color(255, 255, 255));
         LabelCadastroCli.setText("Ponto de Vendas");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(435, Short.MAX_VALUE)
-                .addComponent(LabelCadastroCli, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(258, 258, 258))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(LabelCadastroCli)
-                .addGap(26, 26, 26))
-        );
+        jPanel1.add(LabelCadastroCli);
+        LabelCadastroCli.setBounds(560, 30, 367, 64);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(-2, 0, 1060, 120);
+        jPanel1.setBounds(0, 0, 1640, 110);
 
         btnCancelar.setText("CANCELAR VENDA");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +105,7 @@ public class FrmVendas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnCancelar);
-        btnCancelar.setBounds(800, 610, 150, 50);
+        btnCancelar.setBounds(800, 630, 150, 50);
 
         btnPagamento.setText("PAGAMENTO");
         btnPagamento.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +114,7 @@ public class FrmVendas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnPagamento);
-        btnPagamento.setBounds(640, 610, 150, 50);
+        btnPagamento.setBounds(640, 630, 150, 50);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Cliente"));
@@ -201,7 +190,7 @@ public class FrmVendas extends javax.swing.JFrame {
         txtnome1.setBounds(70, 130, 270, 34);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 120, 520, 170);
+        jPanel2.setBounds(0, 120, 720, 190);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Produto"));
@@ -288,7 +277,7 @@ public class FrmVendas extends javax.swing.JFrame {
         btnBuscaProduto.setBounds(210, 30, 90, 40);
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 310, 520, 270);
+        jPanel3.setBounds(0, 310, 720, 300);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Carrinho de Compras"));
@@ -305,10 +294,10 @@ public class FrmVendas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabeladeItms);
 
         jPanel4.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 30, 520, 290);
+        jScrollPane1.setBounds(10, 30, 900, 290);
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(520, 120, 540, 330);
+        jPanel4.setBounds(720, 120, 910, 330);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Total da Venda"));
@@ -332,12 +321,12 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -345,7 +334,7 @@ public class FrmVendas extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel5);
-        jPanel5.setBounds(520, 450, 540, 130);
+        jPanel5.setBounds(720, 460, 910, 150);
 
         pack();
         setLocationRelativeTo(null);

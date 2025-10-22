@@ -10,6 +10,7 @@ import br.com.project.sarti.model.Produtos;
 import br.com.project.sarti.model.Vendas;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +21,8 @@ public class FrmPagamentos extends javax.swing.JFrame {
 
     public FrmPagamentos() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
         
         txtcartao.setText("0");
         txtdinheiro.setText("0");
@@ -69,25 +72,25 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(117, 117, 117)
+                .addGap(646, 646, 646)
                 .addComponent(LabelCadastroCli)
-                .addContainerGap(551, Short.MAX_VALUE))
+                .addContainerGap(692, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addComponent(LabelCadastroCli)
-                .addGap(27, 27, 27))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 930, 120);
+        jPanel1.setBounds(0, 0, 1600, 120);
 
         jLabel5.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel5.setText("Obs.:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(440, 140, 70, 33);
+        jLabel5.setBounds(810, 170, 70, 33);
 
         txtdinheiro.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtdinheiro.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +99,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtdinheiro);
-        txtdinheiro.setBounds(170, 140, 240, 40);
+        txtdinheiro.setBounds(540, 170, 240, 40);
 
         txtcartao.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtcartao.addActionListener(new java.awt.event.ActionListener() {
@@ -105,12 +108,12 @@ public class FrmPagamentos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtcartao);
-        txtcartao.setBounds(170, 200, 240, 40);
+        txtcartao.setBounds(540, 230, 240, 40);
 
         jLabel6.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel6.setText("TOTAL:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(30, 390, 140, 33);
+        jLabel6.setBounds(400, 420, 140, 33);
 
         txtcheque.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txtcheque.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +122,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtcheque);
-        txtcheque.setBounds(170, 260, 240, 40);
+        txtcheque.setBounds(540, 290, 240, 40);
 
         txttroco.setEditable(false);
         txttroco.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -129,7 +132,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txttroco);
-        txttroco.setBounds(170, 320, 240, 40);
+        txttroco.setBounds(540, 350, 240, 40);
 
         txttotal.setEditable(false);
         txttotal.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -139,22 +142,22 @@ public class FrmPagamentos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txttotal);
-        txttotal.setBounds(170, 380, 240, 40);
+        txttotal.setBounds(540, 410, 240, 40);
 
         jLabel10.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel10.setText("CARTÃO:");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(30, 210, 140, 33);
+        jLabel10.setBounds(400, 240, 140, 33);
 
         jLabel11.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel11.setText("CHEQUE:");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(30, 270, 140, 33);
+        jLabel11.setBounds(400, 300, 140, 33);
 
         jLabel12.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel12.setText("TROCO:");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(30, 330, 140, 33);
+        jLabel12.setBounds(400, 360, 140, 33);
 
         btnFinalizarVenda.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnFinalizarVenda.setText("Finalizar Venda");
@@ -164,12 +167,12 @@ public class FrmPagamentos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnFinalizarVenda);
-        btnFinalizarVenda.setBounds(130, 460, 260, 60);
+        btnFinalizarVenda.setBounds(530, 480, 260, 60);
 
         jLabel7.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel7.setText("DINHEIRO:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(30, 150, 140, 33);
+        jLabel7.setBounds(400, 180, 140, 33);
 
         txtObs.setColumns(20);
         txtObs.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -177,7 +180,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtObs);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(510, 130, 280, 110);
+        jScrollPane1.setBounds(880, 160, 280, 110);
 
         pack();
         setLocationRelativeTo(null);

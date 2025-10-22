@@ -7,6 +7,7 @@ package br.com.project.sarti.view;
 import br.com.project.sarti.dao.VendasDAO;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,8 @@ public class FrmTotalVendas extends javax.swing.JFrame {
      */
     public FrmTotalVendas() {
         initComponents();
+           this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }
 
     /**
@@ -40,36 +43,30 @@ public class FrmTotalVendas extends javax.swing.JFrame {
         btnconsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setLayout(null);
 
         LabelCadastroCli.setBackground(new java.awt.Color(255, 255, 255));
         LabelCadastroCli.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         LabelCadastroCli.setForeground(new java.awt.Color(255, 255, 255));
         LabelCadastroCli.setText("Total de Vendas por Data");
+        jPanel1.add(LabelCadastroCli);
+        LabelCadastroCli.setBounds(660, 40, 310, 32);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(211, 211, 211)
-                .addComponent(LabelCadastroCli, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(LabelCadastroCli)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1630, 110);
 
         jLabel8.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel8.setText("Data da Venda:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(530, 200, 140, 33);
 
         jLabel7.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel7.setText("Total da Venda:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(520, 260, 140, 33);
 
         txttotalVenda.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         txttotalVenda.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +74,8 @@ public class FrmTotalVendas extends javax.swing.JFrame {
                 txttotalVendaActionPerformed(evt);
             }
         });
+        getContentPane().add(txttotalVenda);
+        txttotalVenda.setBounds(680, 260, 270, 34);
 
         try {
             txtdata.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -94,6 +93,8 @@ public class FrmTotalVendas extends javax.swing.JFrame {
                 txtdataKeyPressed(evt);
             }
         });
+        getContentPane().add(txtdata);
+        txtdata.setBounds(680, 200, 172, 30);
 
         btnconsultar.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         btnconsultar.setText("Consultar");
@@ -102,42 +103,8 @@ public class FrmTotalVendas extends javax.swing.JFrame {
                 btnconsultarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txttotalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtdata, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnconsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdata, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnconsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txttotalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 66, Short.MAX_VALUE))
-        );
+        getContentPane().add(btnconsultar);
+        btnconsultar.setBounds(890, 190, 133, 48);
 
         pack();
         setLocationRelativeTo(null);

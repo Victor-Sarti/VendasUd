@@ -14,15 +14,14 @@ public class FrmMenu extends javax.swing.JFrame {
     public FrmMenu() {
         initComponents();
         
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setResizable(true);
+      
 
         
            // Abre em tela cheia automaticamente
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+       this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         // Centraliza (caso saia do modo full screen por algum motivo)
-        this.setLocationRelativeTo(null);
+        //this.setLocationRelativeTo(null);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -87,10 +86,10 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel2.setBounds(10, 20, 100, 20);
 
         PainelDesktop.add(jPanel1);
-        jPanel1.setBounds(0, 390, 860, 40);
+        jPanel1.setBounds(0, 390, 880, 40);
 
         getContentPane().add(PainelDesktop);
-        PainelDesktop.setBounds(0, 0, 860, 430);
+        PainelDesktop.setBounds(0, 0, 960, 430);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientes.png"))); // NOI18N
         jMenu1.setText("Clientes");
@@ -125,6 +124,11 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/novo.png"))); // NOI18N
         jMenuItem3.setText("Controle de Fornecedores");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem3);
 
         jMenuBar1.add(jMenu3);
@@ -141,6 +145,7 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMenu9.add(jMenuItem4);
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/buscar.png"))); // NOI18N
         jMenuItem5.setText("Consulta de Produtos");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,13 +159,31 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas.png"))); // NOI18N
         jMenu4.setText("Vendas");
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pagamentos.png"))); // NOI18N
         jMenuItem6.setText("Abrir PDV");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem6);
 
+        menu_posicao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/editar.png"))); // NOI18N
         menu_posicao.setText("Posição do Dia");
+        menu_posicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_posicaoActionPerformed(evt);
+            }
+        });
         jMenu4.add(menu_posicao);
 
+        menu_controleVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
         menu_controleVendas.setText("Controle de Vendas");
+        menu_controleVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_controleVendasActionPerformed(evt);
+            }
+        });
         jMenu4.add(menu_controleVendas);
 
         jMenuBar1.add(jMenu4);
@@ -190,6 +213,7 @@ public class FrmMenu extends javax.swing.JFrame {
         setJMenuBar(jMenuBar1);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -203,14 +227,30 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
+        FrmCliente telacli = new FrmCliente();
+        
+        this.dispose();
+        
+        telacli.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        FrmFuncionarios telafuncio = new FrmFuncionarios();
+        this.dispose();
+        telafuncio.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
+        
+        FrmEstoque telaestoque = new FrmEstoque();
+         
+        this.dispose();
+        telaestoque.setVisible(true);
+        
+       
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
@@ -243,6 +283,43 @@ public class FrmMenu extends javax.swing.JFrame {
         tela.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        FrmFornecedores telafornecedores = new FrmFornecedores();
+        
+        this.dispose();
+        
+        telafornecedores.setVisible(true); 
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void menu_controleVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controleVendasActionPerformed
+       FrmHistorico telahist = new FrmHistorico();
+       
+       this.dispose();
+       
+       telahist.setVisible(true);
+        
+    }//GEN-LAST:event_menu_controleVendasActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        
+        FrmVendas telapdv = new FrmVendas();
+        
+        this.dispose();
+        
+        telapdv.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void menu_posicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_posicaoActionPerformed
+        FrmTotalVendas telavendato = new FrmTotalVendas();
+        
+        this.dispose();
+        
+        telavendato.setVisible(true);
+    }//GEN-LAST:event_menu_posicaoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
