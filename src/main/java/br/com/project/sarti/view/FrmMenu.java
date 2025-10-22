@@ -142,6 +142,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu9.add(jMenuItem4);
 
         jMenuItem5.setText("Consulta de Produtos");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu9.add(jMenuItem5);
 
         jMenuBar1.add(jMenu9);
@@ -229,6 +234,15 @@ public class FrmMenu extends javax.swing.JFrame {
            System.exit(0);
        }
     }//GEN-LAST:event_jMenu16MouseClicked
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        
+        FrmProdutos tela = new FrmProdutos();
+        tela.painel.setSelectedIndex(1);
+        tela.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

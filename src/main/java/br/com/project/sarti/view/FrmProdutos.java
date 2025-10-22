@@ -1065,10 +1065,10 @@ public class FrmProdutos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTabbedPane painel;
+    public javax.swing.JTabbedPane painel;
     private javax.swing.JPanel painelConsulta;
     private javax.swing.JPanel painelDados;
-    private javax.swing.JTable tabelaProdutos;
+    public javax.swing.JTable tabelaProdutos;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdescricao;
     private javax.swing.JTextField txtestoque;
