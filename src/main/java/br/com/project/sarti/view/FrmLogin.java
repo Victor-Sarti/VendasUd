@@ -122,20 +122,16 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcpfActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-//botao entrar
         try {
-            String cpf, senha;
-            
-            cpf = txtcpf.getText();
-            senha = txtSenha.getText();
+            String cpf = txtcpf.getText();
+            String senha = txtSenha.getText();
             
             FuncionariosDAO dao = new FuncionariosDAO();
-            
             dao.efetuarLogin(cpf, senha);
-            this.dispose();
             
+            dispose();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro");
+            JOptionPane.showMessageDialog(null, "Erro " +  e.getMessage());
         }
 
     }//GEN-LAST:event_btnEntrarActionPerformed
