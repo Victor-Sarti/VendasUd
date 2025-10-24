@@ -31,9 +31,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         Image image = icon.getImage();
         PainelDesktop = new javax.swing.JDesktopPane(){
-            @Override
             public void paintComponent(Graphics g) {
-                super.paintComponent(g);
                 // Desenha a imagem redimensionada automaticamente
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             }
@@ -61,6 +59,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu16 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela Menu");
         setMaximumSize(new java.awt.Dimension(0, 0));
         setSize(new java.awt.Dimension(0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -78,7 +77,7 @@ public class FrmMenu extends javax.swing.JFrame {
         lblusuario.setForeground(new java.awt.Color(0, 0, 204));
         lblusuario.setText("aaa");
         jPanel1.add(lblusuario);
-        lblusuario.setBounds(110, 10, 150, 20);
+        lblusuario.setBounds(120, 10, 150, 20);
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel2.setText("Usúario Logado:");
@@ -86,10 +85,10 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel2.setBounds(10, 10, 100, 20);
 
         PainelDesktop.add(jPanel1);
-        jPanel1.setBounds(0, 400, 960, 30);
+        jPanel1.setBounds(-10, 680, 1570, 40);
 
         getContentPane().add(PainelDesktop);
-        PainelDesktop.setBounds(0, 0, 960, 430);
+        PainelDesktop.setBounds(0, 0, 1550, 720);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientes.png"))); // NOI18N
         jMenu1.setText("Clientes");

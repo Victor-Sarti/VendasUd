@@ -42,7 +42,12 @@ public class FrmTotalVendas extends javax.swing.JFrame {
         txtdata = new javax.swing.JFormattedTextField();
         btnconsultar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Total de Vendas");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -142,6 +147,13 @@ public class FrmTotalVendas extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnconsultarActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+          FrmMenu telaMenu = new FrmMenu();
+
+    // 2. Torne a tela de menu visível
+    telaMenu.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

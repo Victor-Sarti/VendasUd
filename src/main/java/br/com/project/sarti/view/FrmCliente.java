@@ -7,6 +7,7 @@ package br.com.project.sarti.view;
 import br.com.project.sarti.dao.ClientesDAO;
 import br.com.project.sarti.model.Clientes;
 import br.com.project.sarti.model.Utilitarios;
+import br.com.project.sarti.view.FrmMenu;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JFrame;
@@ -48,7 +49,7 @@ public class FrmCliente extends javax.swing.JFrame {
         
         initComponents();
                this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+               setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
     }
     
     @SuppressWarnings("unchecked")
@@ -142,12 +143,15 @@ public class FrmCliente extends javax.swing.JFrame {
         btnsalvar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Clientes");
         setMaximumSize(new java.awt.Dimension(0, 0));
         setSize(new java.awt.Dimension(1800, 800));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                abrirTelaMenu(evt);
             }
         });
         getContentPane().setLayout(null);
@@ -1048,9 +1052,9 @@ public class FrmCliente extends javax.swing.JFrame {
         obj.setRg(txtrg.getText());
         obj.setCpf(txtcpf.getText());
         obj.setEmail(txtemail.getText());
-        obj.setCelular(txtnumero.getText());
+        obj.setCelular(txtcelular.getText());
         obj.setCep(txtcep.getText());
-        obj.setEndereco(txtnumero.getText());
+        obj.setEndereco(txtendereco.getText());
         obj.setNumero(Integer.parseInt(txtnumero.getText()));
         obj.setComplemento(txtcomplemento.getText());
         obj.setBairro(txtbairro.getText());
@@ -1125,9 +1129,9 @@ public class FrmCliente extends javax.swing.JFrame {
         obj.setRg(txtrg.getText());
         obj.setCpf(txtcpf.getText());
         obj.setEmail(txtemail.getText());
-        obj.setCelular(txtnumero.getText());
+        obj.setCelular(txtcelular.getText());
         obj.setCep(txtcep.getText());
-        obj.setEndereco(txtnumero.getText());
+        obj.setEndereco(txtendereco.getText());
         obj.setNumero(Integer.parseInt(txtnumero.getText()));
         obj.setComplemento(txtcomplemento.getText());
         obj.setBairro(txtbairro.getText());
@@ -1189,6 +1193,17 @@ public class FrmCliente extends javax.swing.JFrame {
      }
         
     }//GEN-LAST:event_txtcepKeyPressed
+
+    private void abrirTelaMenu(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_abrirTelaMenu
+        // TODO add your handling code here:
+        // Este método é gerado pelo NetBeans após o passo 6
+        // 1. Crie uma instância da sua tela de menu
+    FrmMenu telaMenu = new FrmMenu();
+
+    // 2. Torne a tela de menu visível
+    telaMenu.setVisible(true);
+
+    }//GEN-LAST:event_abrirTelaMenu
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

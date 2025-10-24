@@ -11,6 +11,7 @@ import br.com.project.sarti.model.Fornecedores;
 import br.com.project.sarti.model.Utilitarios;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -49,6 +50,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     public FrmFornecedores() {
         initComponents();
+                       this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }
 
     /**
@@ -145,11 +148,13 @@ public class FrmFornecedores extends javax.swing.JFrame {
         btnsalvar = new javax.swing.JButton();
         btneditar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Fornecedores");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
         getContentPane().setLayout(null);
@@ -753,7 +758,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaFornecedores);
 
         painelConsulta.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 80, 1630, 320);
+        jScrollPane1.setBounds(0, 80, 1630, 310);
 
         painel.addTab("Consulta de Fornecedores", painelConsulta);
 
@@ -1158,6 +1163,14 @@ public class FrmFornecedores extends javax.swing.JFrame {
      }
         
     }//GEN-LAST:event_txtcepKeyPressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+          FrmMenu telaMenu = new FrmMenu();
+
+    // 2. Torne a tela de menu visível
+    telaMenu.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

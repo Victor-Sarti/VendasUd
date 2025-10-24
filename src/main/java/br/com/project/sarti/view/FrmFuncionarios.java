@@ -158,11 +158,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaFuncionarios = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1058, 608));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
         getContentPane().setLayout(null);
@@ -886,9 +888,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         obj.setSenha(txtSenha.getText());
         obj.setCargo(txtCargo.getText());
         obj.setNivel_acesso(cbNiveldeAcesso.getSelectedItem().toString());
-        obj.setCelular(txtnumero.getText());
+        obj.setCelular(txtcelular.getText());
         obj.setCep(txtcep.getText());
-        obj.setEndereco(txtnumero.getText());
+        obj.setEndereco(txtendereco.getText());
         obj.setNumero(Integer.parseInt(txtnumero.getText()));
         obj.setComplemento(txtcomplemento.getText());
         obj.setBairro(txtbairro.getText());
@@ -932,9 +934,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         obj.setSenha(txtSenha.getText());
         obj.setCargo(txtCargo.getText());
         obj.setNivel_acesso(cbNiveldeAcesso.getSelectedItem().toString());
-        obj.setCelular(txtnumero.getText());
+        obj.setCelular(txtcelular.getText());
         obj.setCep(txtcep.getText());
-        obj.setEndereco(txtnumero.getText());
+        obj.setEndereco(txtendereco.getText());
         obj.setNumero(Integer.parseInt(txtnumero.getText()));
         obj.setComplemento(txtcomplemento.getText());
         obj.setBairro(txtbairro.getText());
@@ -1235,6 +1237,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcodigoActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       FrmMenu telaMenu = new FrmMenu();
+
+    // 2. Torne a tela de menu visível
+    telaMenu.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

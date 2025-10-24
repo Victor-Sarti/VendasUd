@@ -76,11 +76,13 @@ public class FrmVendas extends javax.swing.JFrame {
         txtTotal = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Vendas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
         getContentPane().setLayout(null);
@@ -466,6 +468,13 @@ public class FrmVendas extends javax.swing.JFrame {
     });
         
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+          FrmMenu telaMenu = new FrmMenu();
+
+    // 2. Torne a tela de menu visível
+    telaMenu.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

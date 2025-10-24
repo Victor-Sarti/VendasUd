@@ -38,8 +38,12 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaitensvendido = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Detalhe da Venda");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -221,6 +225,13 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
     private void txttotalvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttotalvendaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txttotalvendaActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+          FrmMenu telaMenu = new FrmMenu();
+
+    // 2. Torne a tela de menu visível
+    telaMenu.setVisible(true); 
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

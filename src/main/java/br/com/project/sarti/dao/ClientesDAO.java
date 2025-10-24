@@ -99,7 +99,7 @@ public class ClientesDAO {
     public void excluirCliente(Clientes obj){
              // 1- criar comando sql
         try {
-            String sql = " delete from tb_clientes where id = ?";
+            String sql = "delete from tb_clientes where id = ?";
         
         // 2- conectar com o bd e organizar o comando sql
             PreparedStatement stmt = con.prepareStatement(sql);
